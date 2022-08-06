@@ -43,18 +43,21 @@ def get_pet_labels(image_dir):
     results_dic = dict() #Empty dictionary
     filename_list = listdir(image_dir) #List of all files in directory
     for pet_image in filename_list:
-        #Get pet_name
-        low_pet_image = pet_image.lower()
-        word_list_pet_image = low_pet_image.split("_")
-        pet_name = ""
-        for word in word_list_pet_image:
-            if word.isalpha():
-                pet_name += word + " "
-        pet_name = pet_name.strip()
-        
-        if pet_image not in results_dic:
-            results_dic[pet_image] = [] #Create dictionary key and initialize with empty list
-        results_dic[pet_image].append(pet_name)
+        if pet_image.startswith("."): #Skip hidden files or files starting with . #Added per Code Review 1 Feedback
+            continue
+        else:
+            #Get pet_name for good files & process them
+            low_pet_image = pet_image.lower()
+            word_list_pet_image = low_pet_image.split("_")
+            pet_name = ""
+            for word in word_list_pet_image:
+                if word.isalpha():
+                    pet_name += word + " "
+            pet_name = pet_name.strip()
+
+            if pet_image not in results_dic:
+                results_dic[pet_image] = [] #Create dictionary key and initialize with empty list
+            results_dic[pet_image].append(pet_name)
         
     # Replace None with the results_dic dictionary that you created with this
     # function

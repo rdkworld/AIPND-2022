@@ -81,17 +81,21 @@ def adjust_results4_isadog(results_dic, dogfile):
     #Loop through result dictionary
     for key in results_dic:
         #Check if pet image label(index 0) exists in dognames_dic (i.e is it a Dog)
-        match = ''
+        #match = '' #Commented per Code Review 1 Feedback
         if results_dic[key][0] in dognames_dic:
-            match = 1
+            #match = 1 #Commented per Code Review 1 Feedback
+            results_dic[key].append(1) #Added per Code Review 1 Feedback
         else:
-            match = 0
-        results_dic[key].append(match)
+            #match = 0 #Commented per Code Review 1 Feedback
+            results_dic[key].append(0) #Added per Code Review 1 Feedback
+        #results_dic[key].append(match) #Commented per Code Review 1 Feedback
         
         #Check if classifier label(index 1) exists in dognames_dic (i.e is it a Dog)
-        match = ''
+        #match = '' #Commented per Code Review 1 Feedback
         if results_dic[key][1] in dognames_dic:
-            match = 1
+            #match = 1 #Commented per Code Review 1 Feedback
+            results_dic[key].append(1)
         else:
-            match = 0
-        results_dic[key].append(match)        
+            #match = 0 #Commented per Code Review 1 Feedback
+            results_dic[key].append(0)
+        #results_dic[key].append(match) #Commented per Code Review 1 Feedback       
