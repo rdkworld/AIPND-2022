@@ -1,0 +1,89 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = alexnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 6 key-value pairs.
+Below are 6 of them:
+ 1 key:                     Dog_04.jpg  label:                        dog
+ 2 key:                     Dog_03.jpg  label:                        dog
+ 3 key:             Brown_Bear_01.jpeg  label:                 brown bear
+ 4 key:                     Dog_02.jpg  label:                        dog
+ 5 key:                     Dog_01.jpg  label:                        dog
+ 6 key:                  Bucket_01.jpg  label:                     bucket
+
+     MATCH:
+
+            Brown_Bear_01.jpeg: 
+Real:                 brown bear   Classifier: brown bear, bruin, ursus arctos
+
+                 Bucket_01.jpg: 
+Real:                     bucket   Classifier:                   bucket, pail
+
+ NOT A MATCH:
+
+                    Dog_04.jpg: 
+Real:                        dog   Classifier:                    appenzeller
+
+                    Dog_03.jpg: 
+Real:                        dog   Classifier:                    appenzeller
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier:          saluki, gazelle hound
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier:                    appenzeller
+
+# Total Images 6 # Matches: 2 # NOT Matches: 4
+
+     MATCH:
+
+            Brown_Bear_01.jpeg: 
+Real:                 brown bear   Classifier: brown bear, bruin, ursus arctos  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                 Bucket_01.jpg: 
+Real:                     bucket   Classifier:                   bucket, pail  
+PetLabelDog: 0  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+                    Dog_04.jpg: 
+Real:                        dog   Classifier:                    appenzeller  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                    Dog_03.jpg: 
+Real:                        dog   Classifier:                    appenzeller  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                    Dog_02.jpg: 
+Real:                        dog   Classifier:          saluki, gazelle hound  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                    Dog_01.jpg: 
+Real:                        dog   Classifier:                    appenzeller  
+PetLabelDog: 1  ClassLabelDog: 1
+
+# Total Images 6 # Matches: 2 # NOT Matches: 4
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  6  N Dog Images:  4  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  6  N Dog Images:  4  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+CNN Model used is alexnet
+Number of Images is 6
+Number of Dog Images is 4
+Number of Not a Dog Images is 2
+ pct_match - 33.3 
+ pct_correct_dogs - 100.0 
+ pct_correct_breed - 0.0 
+ pct_correct_notdogs - 100.0 
+Misclassified Breed : Pet Image Label is dog vs Classifer Label is appenzeller
+Misclassified Breed : Pet Image Label is dog vs Classifer Label is appenzeller
+Misclassified Breed : Pet Image Label is dog vs Classifer Label is saluki, gazelle hound
+Misclassified Breed : Pet Image Label is dog vs Classifer Label is appenzeller
+
+** Total Elapsed Runtime: 0:0:0
