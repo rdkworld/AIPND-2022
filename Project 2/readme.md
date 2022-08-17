@@ -1,6 +1,67 @@
 
-# Project 1 - Use a Pre-trained Image Classifier to Identify Dog Breeds
-This project will implement Python code to use a trained image classifier to identify dog breeds.
+# Project 2 - Developing an Image Classifier with Deep Learning
+There are two parts to this project.
+
+**Part 1**
+
+In first part of the project, Jupyter notebook was used to work through and implement an image classifier with PyTorch. Jupyter Notebook in .pynb format and also as an HTML file (.html) have been added to *Part 1 - Develop Image Classifier on Jupyter Notebook* folder in this repo.
+
+**Part 2**
+
+In second part of the project, newly built and trained deep neural network on the flower dataset was converted into a command line application so that others can use. This application will be a pair of Python scripts (*train.py and predict.py*) that run from the command line.
+
+## How to use the Command Line Application
+
+**1. Train**
+
+Train a new network on a data set with *train.py*
+
+* Basic usage: 
+  ```python
+     python train.py data_directory
+  ```
+
+* Prints out training loss, validation loss, and validation accuracy as the network trains
+* Options:
+  
+  * Set directory to save checkpoints: 
+  ```python
+     python train.py data_dir --save_dir save_directory
+  ```
+  * Choose architecture: 
+  ```python
+    python train.py data_dir --arch "vgg13"
+  ```    
+  * Set hyperparameters: 
+  ```python
+     python train.py data_dir --learning_rate 0.01 --hidden_units 512 --epochs 20
+  ```  
+  * Use GPU for training: 
+  ```python
+     python train.py data_dir --gpu 
+  ```    
+**2. Predict**
+
+Predict flower name from an image with *predict.py* along with the probability of that name. That is, you'll pass in a single image /path/to/image and return the flower name and class probability.
+
+* Basic usage: 
+  ```python
+     python predict.py /path/to/image checkpoint
+  ```
+* Options:
+  * Return top KK most likely classes: 
+  ```python
+     python predict.py input checkpoint --top_k 3
+  ```
+  * Use a mapping of categories to real names: 
+  ```python
+  python predict.py input checkpoint --category_names cat_to_name.json
+  ```
+  * Use GPU for inference: 
+  ```python
+  python predict.py input checkpoint --gpu   
+  ```
+
 
 ## Principal Objectives
 
