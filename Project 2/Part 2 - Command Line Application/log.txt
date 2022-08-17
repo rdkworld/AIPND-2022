@@ -1,0 +1,541 @@
+alexnet custom 11.18 min 40.7%
+
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'alexnet', 'arch_type': 'custom', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+Sequential(
+  (fc1): Linear(in_features=9216, out_features=1024, bias=True)
+  (relu1): ReLU()
+  (drop1): Dropout(p=0.5)
+  (fc2): Linear(in_features=1024, out_features=512, bias=True)
+  (relu2): ReLU()
+  (drop2): Dropout(p=0.5)
+  (fc_final): Linear(in_features=512, out_features=102, bias=True)
+  (output): LogSoftmax()
+)
+Params to learn:
+	 classifier.fc1.weight
+	 classifier.fc1.bias
+	 classifier.fc2.weight
+	 classifier.fc2.bias
+	 classifier.fc_final.weight
+	 classifier.fc_final.bias
+Epoch 0/9
+----------
+train Loss: 4.3521 Acc: 0.1015
+valid Loss: 3.0764 Acc: 0.2775
+
+Epoch 1/9
+----------
+train Loss: 3.8397 Acc: 0.1500
+valid Loss: 2.7653 Acc: 0.3423
+
+Epoch 2/9
+----------
+train Loss: 3.7669 Acc: 0.1615
+valid Loss: 2.7979 Acc: 0.3203
+
+Epoch 3/9
+----------
+train Loss: 3.7457 Acc: 0.1654
+valid Loss: 2.8540 Acc: 0.3178
+
+Epoch 4/9
+----------
+train Loss: 3.6783 Acc: 0.1745
+valid Loss: 2.7320 Acc: 0.3289
+
+Epoch 5/9
+----------
+train Loss: 3.6112 Acc: 0.1827
+valid Loss: 2.6986 Acc: 0.3680
+
+Epoch 6/9
+----------
+train Loss: 3.5411 Acc: 0.1896
+valid Loss: 2.6268 Acc: 0.3582
+
+Epoch 7/9
+----------
+train Loss: 3.5111 Acc: 0.1946
+valid Loss: 2.4804 Acc: 0.3753
+
+Epoch 8/9
+----------
+train Loss: 3.4742 Acc: 0.1973
+valid Loss: 2.4333 Acc: 0.4071
+
+Epoch 9/9
+----------
+train Loss: 3.4566 Acc: 0.1964
+valid Loss: 2.5698 Acc: 0.3667
+
+Training complete in 11m 18s
+Best val Acc: 0.407090
+Saved checkpoint as checkpoints/checkpoint.pth
+***
+***
+densenet121 custom 19.45 min 76%
+
+root@4bf4383fbbee:/home/workspace/ImageClassifier# python train.py flowers/ --arch densenet121 --arch_type custom --epochs 10 --gpu
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'densenet121', 'arch_type': 'custom', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+/opt/conda/lib/python3.6/site-packages/torchvision-0.2.1-py3.6.egg/torchvision/models/densenet.py:212: UserWarning: nn.init.kaiming_normal is now deprecated in favor of nn.init.kaiming_normal_.
+Downloading: "https://download.pytorch.org/models/densenet121-a639ec97.pth" to /root/.torch/models/densenet121-a639ec97.pth
+100%|████████████████████████████████████████████████████████████████████████████████████████| 32342954/32342954 [00:00<00:00, 87861871.33it/s]
+Sequential(
+  (fc1): Linear(in_features=1024, out_features=1024, bias=True)
+  (relu1): ReLU()
+  (drop1): Dropout(p=0.5)
+  (fc2): Linear(in_features=1024, out_features=512, bias=True)
+  (relu2): ReLU()
+  (drop2): Dropout(p=0.5)
+  (fc_final): Linear(in_features=512, out_features=102, bias=True)
+  (output): LogSoftmax()
+)
+Params to learn:
+           classifier.fc1.weight
+           classifier.fc1.bias
+           classifier.fc2.weight
+           classifier.fc2.bias
+           classifier.fc_final.weight
+           classifier.fc_final.bias
+Epoch 0/9
+----------
+^CTraceback (most recent call last):
+  File "train.py", line 71, in <module>
+    is_inception=(in_arg['arch']=="inception"))
+  File "/home/workspace/ImageClassifier/train_model.py", line 27, in train_model
+    for inputs, labels in dataloaders[phase]:
+  File "/opt/conda/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 264, in __next__
+    batch = self.collate_fn([self.dataset[i] for i in indices])
+  File "/opt/conda/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 264, in <listcomp>
+    batch = self.collate_fn([self.dataset[i] for i in indices])
+  File "/opt/conda/lib/python3.6/site-packages/torchvision-0.2.1-py3.6.egg/torchvision/datasets/folder.py", line 101, in __getitem__
+  File "/opt/conda/lib/python3.6/site-packages/torchvision-0.2.1-py3.6.egg/torchvision/datasets/folder.py", line 147, in default_loader
+  File "/opt/conda/lib/python3.6/site-packages/torchvision-0.2.1-py3.6.egg/torchvision/datasets/folder.py", line 130, in pil_loader
+  File "/opt/conda/lib/python3.6/site-packages/PIL/Image.py", line 892, in convert
+    self.load()
+  File "/opt/conda/lib/python3.6/site-packages/PIL/ImageFile.py", line 194, in load
+    self.load_prepare()
+  File "/opt/conda/lib/python3.6/site-packages/PIL/ImageFile.py", line 262, in load_prepare
+    self.im = Image.core.new(self.mode, self.size)
+KeyboardInterrupt
+root@4bf4383fbbee:/home/workspace/ImageClassifier# python train.py flowers/ --arch densenet121 --arch_type custom --epochs 10 --gpu
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'densenet121', 'arch_type': 'custom', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+/opt/conda/lib/python3.6/site-packages/torchvision-0.2.1-py3.6.egg/torchvision/models/densenet.py:212: UserWarning: nn.init.kaiming_normal is now deprecated in favor of nn.init.kaiming_normal_.
+Sequential(
+  (fc1): Linear(in_features=1024, out_features=1024, bias=True)
+  (relu1): ReLU()
+  (drop1): Dropout(p=0.5)
+  (fc2): Linear(in_features=1024, out_features=512, bias=True)
+  (relu2): ReLU()
+  (drop2): Dropout(p=0.5)
+  (fc_final): Linear(in_features=512, out_features=102, bias=True)
+  (output): LogSoftmax()
+)
+Params to learn:
+           classifier.fc1.weight
+           classifier.fc1.bias
+           classifier.fc2.weight
+           classifier.fc2.bias
+           classifier.fc_final.weight
+           classifier.fc_final.bias
+Epoch 0/9
+----------
+train Loss: 4.0254 Acc: 0.1154
+valid Loss: 2.5223 Acc: 0.4022
+
+Epoch 1/9
+----------
+train Loss: 2.8586 Acc: 0.2790
+valid Loss: 1.6762 Acc: 0.5819
+
+Epoch 2/9
+----------
+train Loss: 2.5379 Acc: 0.3388
+valid Loss: 1.4089 Acc: 0.6406
+
+Epoch 3/9
+----------
+train Loss: 2.3567 Acc: 0.3924
+valid Loss: 1.2238 Acc: 0.6956
+
+Epoch 4/9
+----------
+train Loss: 2.2288 Acc: 0.4222
+valid Loss: 1.1435 Acc: 0.7090
+
+Epoch 5/9
+----------
+train Loss: 2.1926 Acc: 0.4249
+valid Loss: 1.1262 Acc: 0.7323
+
+Epoch 6/9
+----------
+train Loss: 2.1254 Acc: 0.4472
+valid Loss: 1.1164 Acc: 0.7152
+
+Epoch 7/9
+----------
+train Loss: 2.0304 Acc: 0.4687
+valid Loss: 0.9728 Acc: 0.7677
+
+Epoch 8/9
+----------
+train Loss: 2.0402 Acc: 0.4667
+valid Loss: 0.9671 Acc: 0.7653
+
+Epoch 9/9
+----------
+train Loss: 1.9622 Acc: 0.4922
+valid Loss: 0.9784 Acc: 0.7543
+
+Training complete in 19m 45s
+Best val Acc: 0.767726
+Saved checkpoint as checkpoints/checkpoint.pth
+
+***
+vgg13 custom 22 min 53%
+
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'vgg13', 'arch_type': 'custom', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+Sequential(
+  (fc1): Linear(in_features=25088, out_features=1024, bias=True)
+  (relu1): ReLU()
+  (drop1): Dropout(p=0.5)
+  (fc2): Linear(in_features=1024, out_features=512, bias=True)
+  (relu2): ReLU()
+  (drop2): Dropout(p=0.5)
+  (fc_final): Linear(in_features=512, out_features=102, bias=True)
+  (output): LogSoftmax()
+)
+Params to learn:
+	 classifier.fc1.weight
+	 classifier.fc1.bias
+	 classifier.fc2.weight
+	 classifier.fc2.bias
+	 classifier.fc_final.weight
+	 classifier.fc_final.bias
+Epoch 0/9
+----------
+train Loss: 4.1495 Acc: 0.1361
+valid Loss: 2.8148 Acc: 0.3496
+
+Epoch 1/9
+----------
+train Loss: 3.5818 Acc: 0.1992
+valid Loss: 2.4592 Acc: 0.4511
+
+Epoch 2/9
+----------
+train Loss: 3.4657 Acc: 0.2389
+valid Loss: 2.2446 Acc: 0.4768
+
+Epoch 3/9
+----------
+train Loss: 3.4738 Acc: 0.2320
+valid Loss: 2.3658 Acc: 0.4303
+
+Epoch 4/9
+----------
+train Loss: 3.3139 Acc: 0.2711
+valid Loss: 2.1231 Acc: 0.4829
+
+Epoch 5/9
+----------
+train Loss: 3.2395 Acc: 0.2700
+valid Loss: 2.0718 Acc: 0.5110
+
+Epoch 6/9
+----------
+train Loss: 3.2426 Acc: 0.2718
+valid Loss: 2.0303 Acc: 0.5355
+
+Epoch 7/9
+----------
+train Loss: 3.1697 Acc: 0.2851
+valid Loss: 1.9507 Acc: 0.5110
+
+Epoch 8/9
+----------
+train Loss: 3.2386 Acc: 0.2781
+valid Loss: 2.1618 Acc: 0.4866
+
+Epoch 9/9
+----------
+train Loss: 3.2357 Acc: 0.2795
+valid Loss: 2.0387 Acc: 0.4890
+
+Training complete in 22m 34s
+Best val Acc: 0.535452
+Saved checkpoint as checkpoints/checkpoint.pth
+***
+alexnet existing 11 min 84%
+
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'alexnet', 'arch_type': 'existing', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+Sequential(
+  (0): Dropout(p=0.5)
+  (1): Linear(in_features=9216, out_features=4096, bias=True)
+  (2): ReLU(inplace)
+  (3): Dropout(p=0.5)
+  (4): Linear(in_features=4096, out_features=4096, bias=True)
+  (5): ReLU(inplace)
+  (6): Sequential(
+    (0): Linear(in_features=4096, out_features=102, bias=True)
+    (1): LogSoftmax()
+  )
+)
+Params to learn:
+	 classifier.6.0.weight
+	 classifier.6.0.bias
+Epoch 0/9
+----------
+train Loss: 2.2331 Acc: 0.5414
+valid Loss: 0.8715 Acc: 0.7665
+
+Epoch 1/9
+----------
+train Loss: 1.5061 Acc: 0.6743
+valid Loss: 0.8790 Acc: 0.7983
+
+Epoch 2/9
+----------
+train Loss: 1.4544 Acc: 0.7047
+valid Loss: 0.9677 Acc: 0.8068
+
+Epoch 3/9
+----------
+train Loss: 1.3871 Acc: 0.7331
+valid Loss: 0.8653 Acc: 0.8215
+
+Epoch 4/9
+----------
+train Loss: 1.3296 Acc: 0.7350
+valid Loss: 0.9471 Acc: 0.8191
+
+Epoch 5/9
+----------
+train Loss: 1.4113 Acc: 0.7439
+valid Loss: 0.8432 Acc: 0.8362
+
+Epoch 6/9
+----------
+train Loss: 1.2569 Acc: 0.7741
+valid Loss: 0.9479 Acc: 0.8276
+
+Epoch 7/9
+----------
+train Loss: 1.3572 Acc: 0.7582
+valid Loss: 0.9294 Acc: 0.8374
+
+Epoch 8/9
+----------
+train Loss: 1.3819 Acc: 0.7685
+valid Loss: 1.0395 Acc: 0.8240
+
+Epoch 9/9
+----------
+train Loss: 1.3161 Acc: 0.7773
+valid Loss: 0.9829 Acc: 0.8411
+
+Training complete in 11m 31s
+Best val Acc: 0.841076
+Saved checkpoint as checkpoints/checkpoint.pth
+***
+densenet121 existing 19 min 95%
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'densenet121', 'arch_type': 'existing', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+Sequential(
+  (0): Linear(in_features=1024, out_features=102, bias=True)
+  (1): LogSoftmax()
+)
+Params to learn:
+	 classifier.0.weight
+	 classifier.0.bias
+Epoch 0/9
+----------
+train Loss: 2.2837 Acc: 0.5456
+valid Loss: 0.7193 Acc: 0.8619
+
+Epoch 1/9
+----------
+train Loss: 0.8021 Acc: 0.8289
+valid Loss: 0.4105 Acc: 0.9205
+
+Epoch 2/9
+----------
+train Loss: 0.5914 Acc: 0.8643
+valid Loss: 0.3434 Acc: 0.9291
+
+Epoch 3/9
+----------
+train Loss: 0.4636 Acc: 0.8930
+valid Loss: 0.2591 Acc: 0.9401
+
+Epoch 4/9
+----------
+train Loss: 0.4284 Acc: 0.8987
+valid Loss: 0.2387 Acc: 0.9462
+
+Epoch 5/9
+----------
+train Loss: 0.3971 Acc: 0.9025
+valid Loss: 0.2529 Acc: 0.9340
+
+Epoch 6/9
+----------
+train Loss: 0.3637 Acc: 0.9093
+valid Loss: 0.2380 Acc: 0.9438
+
+Epoch 7/9
+----------
+train Loss: 0.3523 Acc: 0.9136
+valid Loss: 0.2262 Acc: 0.9450
+
+Epoch 8/9
+----------
+train Loss: 0.3293 Acc: 0.9122
+valid Loss: 0.1918 Acc: 0.9535
+
+Epoch 9/9
+----------
+train Loss: 0.3297 Acc: 0.9103
+valid Loss: 0.2290 Acc: 0.9438
+
+Training complete in 19m 11s
+Best val Acc: 0.953545
+Saved checkpoint as checkpoints/checkpoint.pth
+***
+vgg13 existing 18 min 92%
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'vgg13', 'arch_type': 'existing', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 10, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+Sequential(
+  (0): Linear(in_features=25088, out_features=4096, bias=True)
+  (1): ReLU(inplace)
+  (2): Dropout(p=0.5)
+  (3): Linear(in_features=4096, out_features=4096, bias=True)
+  (4): ReLU(inplace)
+  (5): Dropout(p=0.5)
+  (6): Sequential(
+    (0): Linear(in_features=4096, out_features=102, bias=True)
+    (1): LogSoftmax()
+  )
+)
+Params to learn:
+	 classifier.6.0.weight
+	 classifier.6.0.bias
+Epoch 0/9
+----------
+train Loss: 1.7133 Acc: 0.5922
+valid Loss: 0.4670 Acc: 0.8643
+
+Epoch 1/9
+----------
+train Loss: 0.9557 Acc: 0.7529
+valid Loss: 0.3733 Acc: 0.8998
+
+Epoch 2/9
+----------
+train Loss: 0.8861 Acc: 0.7711
+valid Loss: 0.3418 Acc: 0.9010
+
+Epoch 3/9
+----------
+train Loss: 0.8411 Acc: 0.7879
+valid Loss: 0.3589 Acc: 0.9071
+
+Epoch 4/9
+----------
+train Loss: 0.8363 Acc: 0.7856
+valid Loss: 0.3279 Acc: 0.9132
+
+Epoch 5/9
+----------
+train Loss: 0.8716 Acc: 0.7906
+valid Loss: 0.3135 Acc: 0.9218
+
+Epoch 6/9
+----------
+train Loss: 0.8693 Acc: 0.7927
+valid Loss: 0.3413 Acc: 0.9205
+
+Epoch 7/9
+----------
+train Loss: 0.8611 Acc: 0.7996
+valid Loss: 0.3312 Acc: 0.9156
+
+Epoch 8/9
+----------
+train Loss: 0.8608 Acc: 0.8109
+valid Loss: 0.3399 Acc: 0.9132
+
+Epoch 9/9
+----------
+train Loss: 0.8527 Acc: 0.8104
+valid Loss: 0.3470 Acc: 0.9120
+
+Training complete in 18m 18s
+Best val Acc: 0.921760
+Saved checkpoint as checkpoints/checkpoint.pth
+***
+alexnet custom 6 min, 41%
+root@4bf4383fbbee:/home/workspace/ImageClassifier# python train.py flowers/ --arch alexnet --arch_type custom --epochs 5 --gpu
+User arguments/hyperparameters or default used are as below
+{'dir': 'flowers/', 'save_dir': 'checkpoints/', 'arch': 'alexnet', 'arch_type': 'custom', 'learning_rate': 0.003, 'hidden_units': [1024, 512], 'epochs': 5, 'gpu': 'gpu', 'feature_extract': True}
+Using cuda device for training/validating
+Downloading: "https://download.pytorch.org/models/alexnet-owt-4df8aa71.pth" to /root/.torch/models/alexnet-owt-4df8aa71.pth
+100%|█████████████████████████████████████████████████████████████████████████████████████| 244418560/244418560 [00:02<00:00, 104891356.66it/s]
+Sequential(
+  (fc1): Linear(in_features=9216, out_features=1024, bias=True)
+  (relu1): ReLU()
+  (drop1): Dropout(p=0.5)
+  (fc2): Linear(in_features=1024, out_features=512, bias=True)
+  (relu2): ReLU()
+  (drop2): Dropout(p=0.5)
+  (fc_final): Linear(in_features=512, out_features=102, bias=True)
+  (output): LogSoftmax()
+)
+Params to learn:
+           classifier.fc1.weight
+           classifier.fc1.bias
+           classifier.fc2.weight
+           classifier.fc2.bias
+           classifier.fc_final.weight
+           classifier.fc_final.bias
+Epoch 0/4
+----------
+train Loss: 4.2777 Acc: 0.1154
+valid Loss: 2.7929 Acc: 0.3460
+
+Epoch 1/4
+----------
+train Loss: 3.8178 Acc: 0.1633
+valid Loss: 2.7824 Acc: 0.3423
+
+Epoch 2/4
+----------
+train Loss: 3.7413 Acc: 0.1755
+valid Loss: 2.7500 Acc: 0.3582
+
+Epoch 3/4
+----------
+train Loss: 3.6853 Acc: 0.1830
+valid Loss: 2.6100 Acc: 0.3802
+
+Epoch 4/4
+----------
+train Loss: 3.6568 Acc: 0.1760
+valid Loss: 2.4987 Acc: 0.4108
+
+Training complete in 6m 14s
+Best val Acc: 0.410758
+Saved checkpoint as checkpoints/checkpoint.pth
