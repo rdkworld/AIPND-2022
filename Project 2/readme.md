@@ -143,6 +143,35 @@ Predict flower name from an image with *predict.py* along with the probability o
 **Conclusion**
 
 Given above results, the **"best"** model architecture is **densenet121** or more broadly **Densenet** architecture at **93.55%** accuracy followed by **vgg** models. Additionally, we see using pretrained models and only replacing the last layer to customize for our dataset gives very high accuracies instead of completing replacing the classification layer with our custom provided number of hidden layers and activation units.
+
+## Four ways to inference/use the model
+
+1. Real-time Website - Try the live application at this [website](https://huggingface.co/spaces/rdkulkarni/which-flower)
+2. Inference using [Jupyter Notebook](https://github.com/rdkworld/AIPND-2022/blob/main/Project%202/Part%201%20-%20Develop%20Image%20Classifier%20on%20Jupyter%20Notebook/Image%20Classifier%20Project.ipynb)
+3. Run from Command Line using options mentioned above. Download/installation of libraries required
+4. Make a REST API call to below API Endpoint providing image in binary format as Input Payload
+
+    ```
+    https://hf.space/embed/rdkulkarni/which-flower/+/api/predict
+    ```
+    Expected Input Payload
+    ```
+    {
+    "data": [
+        str | Dict, // represents base64 url data, or (if tool == "sketch) a dict of image and mask base64 url data of 'image_path' image component
+    ]
+    }    
+    ```
+    Response provided by API
+    ```
+    {
+    "data": [
+        Dict | None, // represents Object with key 'label' representing primary label, and key 'confidences' representing a list of label-confidence pairs of 'output' label component
+    ],
+    "duration": (float) // number of seconds to run function call
+    }    
+    ```
+
 ## Source Code
 
 All the source code is available under **Project 2** folder including input sample images.
