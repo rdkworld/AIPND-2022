@@ -34,7 +34,7 @@ Below models/architecture have been trained on the flower dataset and either of 
 * densenet121
 
 Example usage 
-    ```python
+    ```
     --arch resnet18
     ```
 
@@ -127,48 +127,22 @@ Predict flower name from an image with *predict.py* along with the probability o
   ```python
   python predict.py input checkpoint --gpu   
   ```
-
-
-## Program Outline
-
-- Time your program
-    - Use Time Module to compute program runtime
-- Get program Inputs from the user
-    - Use command line arguments to get user inputs
-- Create Pet Images Labels
-    - Use the pet images filenames to create labels
-    - Store the pet image labels in a data structure (e.g. dictionary)
-- Create Classifier Labels and Compare Labels
-    - Use the Classifier function to classify the images and create the classifier labels
-    - Compare Classifier Labels to Pet Image Labels
-    - Store Pet Labels, Classifier Labels, and their comparison in a complex data structure (e.g. dictionary of lists)
-- Classifying Labels as "Dogs" or "Not Dogs"
-    - Classify all Labels as "Dogs" or "Not Dogs" using dognames.txt file
-    - Store new classifications in the complex data structure (e.g. dictionary of lists)
-- Calculate the Results
-    - Use Labels and their classifications to determine how well the algorithm worked on classifying images
-- Print the Results
-
-Above tasks will be repeated for each of the three image classification algorithms.
-
 ## Final Results
 
-| Type  | Count |
-| ------------- | ------------- |
-| # Total Images  | 40  |
-| # Dog Images  | 30  |
-| # Not-a-Dog Images  | 10  |
-
-| CNN Model Architecture  | % Not-a-Dog Correct | % Dogs Correct | % Breeds Correct | % Match Labels |
+| Architecture  | Architecture Type | Epochs | Time to train | Best Accuracy on Validation Set |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| **ResNet**  | 90.0%  | 100.0%  | 90.0%  | 82.5%  |
-| **AlexNet**  | 100.0%  | 100.0%  | 80.0%  | 75.0%  |
-| **VGG**  | 100.0%  | 100.0%  | 93.3%  | 87.5%  |
+| **alexnet**  |	Custom | 	10 | 	11 m 18 sec | 	40.70%
+| **densenet121**  |	Custom | 	10 | 	19 m 45 sec | 	76.77%
+| **vgg13**  |	Custom | 	10 | 	22 m 34 sec | 	53.54%
+| **alexnet**  |	Existing | 	10 | 	11 m 31 sec | 	84.10%
+| **densenet121**  |	Existing | 	10 | 	19 min 11 sec | 	95.35%
+| **vgg13**  |	Existing | 	10 | 	18 min 18 sec | 	92.17%
+| **vgg16**  | 	Custom |  	10 | 	30 min | 	32.46%
+| **vgg11_bn**  |	Existing | 	10 | 	20 min 10 sec | 	91.12%
 
 **Conclusion**
 
-Given above results, the **"best"** model architecture is **VGG**. It outperformed both of the other architectures when considering principal objectives 1 and 2. We noticed that ResNet did classify dog breeds better than AlexNet, but only VGG and AlexNet were able to classify "dogs" and "not-a-dog" at 100% accuracy. The model VGG was the one that was able to classify "dogs" and "not-a-dog" with 100% accuracy and had the best performance regarding breed classification with 93.3% accuracy.
-
+Given above results, the **"best"** model architecture is **densenet121** or more broadly **Densenet** architecture at **93.55%** accuracy followed by **vgg** models. Additionally, we see using pretrained models and only replacing the last layer to customize for our dataset gives very high accuracies instead of completing replacing the classification layer with our custom provided number of hidden layers and activation units.
 ## Source Code
 
 All the source code is available under **Project 2** folder including input sample images.
