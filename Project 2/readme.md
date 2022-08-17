@@ -1,5 +1,17 @@
-
 # Project 2 - Developing an Image Classifier with Deep Learning
+
+## Overview
+
+In this project, we will train an image classifier to recognize different species of flowers. You can imagine using something like this in a phone app that tells you the name of the flower your camera is looking at. In practice will will train this classifier, then export it for use in your application. We'll be using [this dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html) of 102 flower categories, you can see a few examples below. 
+
+<img src='Part 1 - Develop Image Classifier on Jupyter Notebook/assets/Flowers.png' width=500px>
+
+The project is broken down into multiple steps:
+
+* Load and preprocess the image dataset
+* Train the image classifier on your dataset
+* Use the trained classifier to predict image content
+
 There are two parts to this project.
 
 **Part 1**
@@ -49,7 +61,7 @@ Predict flower name from an image with *predict.py* along with the probability o
      python predict.py /path/to/image checkpoint
   ```
 * Options:
-  * Return top KK most likely classes: 
+  * Return top K most likely classes: 
   ```python
      python predict.py input checkpoint --top_k 3
   ```
@@ -63,12 +75,6 @@ Predict flower name from an image with *predict.py* along with the probability o
   ```
 
 
-## Principal Objectives
-
-1. Correctly identify which pet images are of dogs (even if the breed is misclassified) and which pet images aren't of dogs.
-2. Correctly classify the breed of dog, for the images that are of dogs.
-3. Determine which CNN model architecture (**ResNet, AlexNet, or VGG**), "best" achieve objectives 1 and 2.
-4. Consider the time resources required to best achieve objectives 1 and 2, and determine if an alternative solution would have given a "good enough" result, given the amount of time each of the algorithms takes to run.
  
 ## Program Outline
 
