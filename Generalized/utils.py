@@ -6,7 +6,8 @@ from pathlib import Path
 
 def save_model(model: torch.nn.Module,
                target_dir: str,
-               model_name: str):
+               model_name: str,
+               checkpoint: dict):
     """Saves a PyTorch model to a target directory.
 
     Args:
@@ -31,5 +32,7 @@ def save_model(model: torch.nn.Module,
 
     # Save the model state_dict()
     print(f"[INFO] Saving model to: {model_save_path}")
-    torch.save(obj=model.state_dict(),
-             f=model_save_path)
+#     torch.save(obj=model.state_dict(),
+#              f=model_save_path)
+    torch.save(obj=checkpoint,
+             f=model_save_path)    
