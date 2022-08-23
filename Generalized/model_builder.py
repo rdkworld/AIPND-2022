@@ -12,14 +12,14 @@ def set_parameter_requires_grad(model, feature_extracting):
         for param in model.parameters():
             param.requires_grad = False
 
-class update_last_layer_pretrained_model(pretrained_model, num_classes, feature_extract):
+def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_extract):
     set_parameter_requires_grad(pretrained_model, feature_extract)
     if getattr(pretrained_model, 'heads'):
         num_ftrs = pretrained_model.heads.head.in_features
         pretrained_model.heads.head = nn.Linear(num_ftrs, num_classes, bias = True)
-        return pretrained_model
+    return pretrained_model
 
-class initialize_existing_models(model_name, model_type, num_classes, feature_extract, hidden_units, use_pretrained=True):
+def initialize_existing_models(model_name, model_type, num_classes, feature_extract, hidden_units, use_pretrained=True):
     # Initialize these variables which will be set in this if statement. Each of these variables is model specific.
     model_ft = None
     input_size = 0
@@ -84,7 +84,7 @@ class initialize_existing_models(model_name, model_type, num_classes, feature_ex
     return model_ft, input_size
 
 #Get pre-trained model specifications and override with classifier portion with user activation units
-class build_custom_models(model_name, model_type, num_classes, feature_extract, hidden_units, use_pretrained=True):
+def build_custom_models(model_name, model_type, num_classes, feature_extract, hidden_units, use_pretrained=True):
        
     model_ft = getattr(models, model_name)(pretrained = use_pretrained)
     set_parameter_requires_grad(model_ft, feature_extract)
