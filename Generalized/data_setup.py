@@ -43,8 +43,9 @@ def create_dataloaders(
   train_data = datasets.ImageFolder(train_dir, transform=transform)
   test_data = datasets.ImageFolder(test_dir, transform=transform)
 
-  # Get class names
+  # Get class names and class to idx
   class_names = train_data.classes
+  class_to_idx = train_data.class_to_idx
 
   # Turn images into data loaders
   train_dataloader = DataLoader(
@@ -62,4 +63,4 @@ def create_dataloaders(
       pin_memory=True,
   )
 
-  return train_dataloader, test_dataloader, class_names
+  return train_dataloader, test_dataloader, class_names, class_to_idx
