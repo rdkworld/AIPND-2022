@@ -20,6 +20,13 @@ import requests
 # are in each subdirectory.
 import os
 
+#Add this function to helper function or utils 
+def create_directory(path):
+  if path.is_dir():
+      pass
+  else:
+      path.mkdir(parents=True, exist_ok=True) 
+        
 def walk_through_dir(dir_path):
     """
     Walks through dir_path returning its contents.
