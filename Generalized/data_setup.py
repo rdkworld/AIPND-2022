@@ -3,9 +3,10 @@ Contains functionality for creating PyTorch DataLoaders for
 image classification data.
 """
 import os
-
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+from sklearn.model_selection import train_test_split
+import numpy as np
 
 NUM_WORKERS = os.cpu_count()
 
@@ -44,6 +45,10 @@ def create_dataloaders(
   train_data = datasets.ImageFolder(train_dir, transform=transform)
   test_data = datasets.ImageFolder(test_dir, transform=transform)
 
+  # Get class names and class to idx
+  class_names = train_data.classes
+  class_to_idx = train_data.class_to_idx
+
   if sample_size:
     train_targets = train_data.targets
     test_targets = test_data.targets
@@ -56,26 +61,36 @@ def create_dataloaders(
     train_sampler = torch.utils.data.SubsetRandomSampler(train_subset_1_idx)
     test_sampler = torch.utils.data.SubsetRandomSampler(test_subset_1_idx)
 
-  # Get class names and class to idx
-  class_names = train_data.classes
-  class_to_idx = train_data.class_to_idx
-
-  # Turn images into data loaders
-  train_dataloader = DataLoader(
-      train_data,
-      batch_size=batch_size,
-      shuffle=True,
-      num_workers=num_workers,
-      sampler=train_sampler,
-      pin_memory=True,
-  )
-  test_dataloader = DataLoader(
-      test_data,
-      batch_size=batch_size,
-      shuffle=False,
-      num_workers=num_workers,
-      sampler=test_sampler,      
-      pin_memory=True,
-  )
+    # Turn images into data loaders
+    train_dataloader = DataLoader(
+        train_data,
+        batch_size=batch_size,
+        num_workers=num_workers,
+        sampler=train_sampler,
+        pin_memory=True,
+    )
+    test_dataloader = DataLoader(
+        test_data,
+        batch_size=batch_size,
+        num_workers=num_workers,
+        sampler=test_sampler,      
+        pin_memory=True,
+    )
+  else:
+    # Turn images into data loaders
+    train_dataloader = DataLoader(
+        train_data,
+        batch_size=batch_size,
+        shuffle=True,
+        num_workers=num_workers,
+        pin_memory=True,
+    )
+    test_dataloader = DataLoader(
+        test_data,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=True,
+    )
 
   return train_dataloader, test_dataloader, class_names, class_to_idx
