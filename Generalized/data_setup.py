@@ -3,6 +3,7 @@ Contains functionality for creating PyTorch DataLoaders for
 image classification data.
 """
 import os
+import torch
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader, SubsetRandomSampler
 from sklearn.model_selection import train_test_split
