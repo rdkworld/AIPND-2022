@@ -15,7 +15,6 @@ import zipfile
 from pathlib import Path
 
 import requests
-from torch.utils.tensorboard import SummaryWriter
 
 # Walk through an image classification directory and find out how many files (images)
 # are in each subdirectory.
@@ -328,6 +327,7 @@ def create_writer(experiment_name: str,
     """
     from datetime import datetime
     import os
+    from torch.utils.tensorboard import SummaryWriter
 
     # Get timestamp of current date (all experiments on certain day live in same folder)
     timestamp = datetime.now().strftime("%Y-%m-%d") # returns current date in YYYY-MM-DD format
