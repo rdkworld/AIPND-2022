@@ -4,7 +4,7 @@ image classification data.
 """
 import os
 from torchvision import datasets, transforms
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, SubsetRandomSampler
 from sklearn.model_selection import train_test_split
 import numpy as np
 
@@ -58,8 +58,8 @@ def create_dataloaders(
     train_subset_1_idx, train_subset_2_idx = train_test_split(np.arange(len(train_targets)),train_size=sample_size,shuffle=True,stratify=train_targets)
     test_subset_1_idx, test_subset_2_idx = train_test_split(np.arange(len(test_targets)),train_size=sample_size,shuffle=True,stratify=test_targets)
 
-    train_sampler = torch.utils.data.SubsetRandomSampler(train_subset_1_idx)
-    test_sampler = torch.utils.data.SubsetRandomSampler(test_subset_1_idx)
+    train_sampler = SubsetRandomSampler(train_subset_1_idx)
+    test_sampler = SubsetRandomSampler(test_subset_1_idx)
 
     # Turn images into data loaders
     train_dataloader = DataLoader(
