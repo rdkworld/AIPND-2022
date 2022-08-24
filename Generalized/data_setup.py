@@ -14,7 +14,8 @@ def create_dataloaders(
     test_dir: str, 
     transform: transforms.Compose, 
     batch_size: int, 
-    num_workers: int=NUM_WORKERS
+    num_workers: int=NUM_WORKERS,
+    sample_size = None: float
 ):
   """Creates training and testing DataLoaders.
 
@@ -43,6 +44,18 @@ def create_dataloaders(
   train_data = datasets.ImageFolder(train_dir, transform=transform)
   test_data = datasets.ImageFolder(test_dir, transform=transform)
 
+  if sample_size:
+    train_targets = train_data.targets
+    test_targets = test_data.targets
+
+    from sklearn.model_selection import train_test_split
+    import numpy as np 
+    train_subset_1_idx, train_subset_2_idx = train_test_split(np.arange(len(train_targets)),train_size=sample_size,shuffle=True,stratify=train_targets)
+    test_subset_1_idx, test_subset_2_idx = train_test_split(np.arange(len(test_targets)),train_size=sample_size,shuffle=True,stratify=test_targets)
+
+    train_sampler = torch.utils.data.SubsetRandomSampler(train_subset_1_idx)
+    test_sampler = torch.utils.data.SubsetRandomSampler(test_subset_1_idx)
+
   # Get class names and class to idx
   class_names = train_data.classes
   class_to_idx = train_data.class_to_idx
@@ -53,6 +66,7 @@ def create_dataloaders(
       batch_size=batch_size,
       shuffle=True,
       num_workers=num_workers,
+      sampler=train_sampler,
       pin_memory=True,
   )
   test_dataloader = DataLoader(
@@ -60,6 +74,7 @@ def create_dataloaders(
       batch_size=batch_size,
       shuffle=False,
       num_workers=num_workers,
+      sampler=test_sampler,      
       pin_memory=True,
   )
 
