@@ -215,11 +215,9 @@ def train(model: torch.nn.Module,
           writer.add_graph(model=model, 
                           # Pass in an example input
                           input_to_model=torch.randn(32, 3, 224, 224).to(device))
-          # Close the writer
-          writer.close()
-        ### End new ###
-        else:
-          pass
+
+    # Close the writer
+    writer.close()
 
     # Return the filled results at the end of the epochs
     return results
