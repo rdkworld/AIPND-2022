@@ -300,9 +300,8 @@ def download_data(source: str,
     
     return image_path
 
-def create_writer(experiment_name: str, 
-                  model_name: str, 
-                  extra: str=None) -> torch.utils.tensorboard.writer.SummaryWriter():
+def create_writer(dict_for_writer: dict
+                 ) -> torch.utils.tensorboard.writer.SummaryWriter():
     """Creates a torch.utils.tensorboard.writer.SummaryWriter() instance saving to a specific log_dir.
 
     log_dir is a combination of runs/timestamp/experiment_name/model_name/extra.
@@ -332,11 +331,23 @@ def create_writer(experiment_name: str,
     # Get timestamp of current date (all experiments on certain day live in same folder)
     timestamp = datetime.now().strftime("%Y-%m-%d") # returns current date in YYYY-MM-DD format
 
-    if extra:
-        # Create log directory path
-        log_dir = os.path.join("runs", timestamp, experiment_name, model_name, extra)
-    else:
-        log_dir = os.path.join("runs", timestamp, experiment_name, model_name)
+    log_dir = os.path.join("runs", str(dict_for_writer['experiment_number']), str(timestamp), dict_for_writer['model_name'])
+    if dict_for_writer.get('sample_size'):
+        log_dir = log_dir / str(dict_for_writer.get('sample_size'))
+    if dict_for_writer.get('loss_fn'):
+        log_dir = log_dir / dict_for_writer.get('loss_fn')
+    if dict_for_writer.get('optimizer'):
+        log_dir = log_dir / dict_for_writer.get('optimizer')
+    if dict_for_writer.get('learning_rate'):
+        log_dir = log_dir / str(dict_for_writer.get('learning_rate'))
+    if dict_for_writer.get('num_epochs'):
+        log_dir = log_dir / str(dict_for_writer.get('num_epochs'))
+
+    # if extra:
+    #     # Create log directory path
+    #     log_dir = os.path.join("runs", timestamp, experiment_name, model_name, extra)
+    # else:
+    #     log_dir = os.path.join("runs", timestamp, experiment_name, model_name)
         
     print(f"[INFO] Created SummaryWriter, saving to: {log_dir}...")
     return SummaryWriter(log_dir=log_dir)
