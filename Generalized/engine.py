@@ -6,9 +6,6 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm.auto import tqdm
 from typing import Dict, List, Tuple
 
-#Create a (tensorboard) writer with default settings
-writer = SummaryWriter()
-
 def train_step(model: torch.nn.Module, 
                dataloader: torch.utils.data.DataLoader, 
                loss_fn: torch.nn.Module, 
