@@ -196,8 +196,11 @@ def train(model: torch.nn.Module,
         ###Use the writer parameter to track experiments ###
         # See if there's a writer, if so, log to it
         if writer:
-          writer.add_scalar(tag="Loss/train", scalar_value=train_loss,global_step=epoch)
-          writer.add_scalar(tag="Loss/test", scalar_value=test_loss,global_step=epoch)
+          writer.add_scalar(tag="Loss/test", scalar_value=test_loss, global_step=epoch)
+          writer.add_scalar(tag="Loss/train", scalar_value=train_loss, global_step=epoch)
+
+          writer.add_scalar(tag="Accuracy/test",scalar_value=test_acc, global_step=epoch)
+          writer.add_scalar(tag="Accuracy/train",scalar_value=train_acc, global_step=epoch)
 
           # Add loss results to SummaryWriter
           # writer.add_scalars(main_tag="Loss", 
@@ -211,10 +214,10 @@ def train(model: torch.nn.Module,
           #                                     "test_acc": test_acc}, 
           #                   global_step=epoch)
           
-          # # Track the PyTorch model architecture
-          # writer.add_graph(model=model, 
-          #                 # Pass in an example input
-          #                 input_to_model=torch.randn(32, 3, 224, 224).to(device))
+          # Track the PyTorch model architecture
+          writer.add_graph(model=model, 
+                          # Pass in an example input
+                          input_to_model=torch.randn(32, 3, 224, 224).to(device))
 
     # Close the writer
     writer.close()
