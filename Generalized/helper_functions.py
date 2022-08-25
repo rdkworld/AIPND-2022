@@ -332,16 +332,16 @@ def create_writer(dict_for_writer: dict
     timestamp = datetime.now().strftime("%Y-%m-%d") # returns current date in YYYY-MM-DD format
 
     log_dir = os.path.join("runs", str(dict_for_writer['experiment_number']), str(timestamp), dict_for_writer['model_name'])
-    # if dict_for_writer.get('sample_size'):
-    #     log_dir = log_dir / str(dict_for_writer.get('sample_size'))
-    # if dict_for_writer.get('loss_fn'):
-    #     log_dir = log_dir / dict_for_writer.get('loss_fn')
-    # if dict_for_writer.get('optimizer'):
-    #     log_dir = log_dir / dict_for_writer.get('optimizer')
-    # if dict_for_writer.get('learning_rate'):
-    #     log_dir = log_dir / str(dict_for_writer.get('learning_rate'))
-    # if dict_for_writer.get('num_epochs'):
-    #     log_dir = log_dir / str(dict_for_writer.get('num_epochs'))
+    if dict_for_writer.get('sample_size'):
+        log_dir = log_dir / str(dict_for_writer.get('sample_size'))
+    if dict_for_writer.get('loss_fn'):
+        log_dir = log_dir / dict_for_writer.get('loss_fn')
+    if dict_for_writer.get('optimizer'):
+        log_dir = log_dir / dict_for_writer.get('optimizer')
+    if dict_for_writer.get('learning_rate'):
+        log_dir = log_dir / str(dict_for_writer.get('learning_rate'))
+    if dict_for_writer.get('num_epochs'):
+        log_dir = log_dir / str(dict_for_writer.get('num_epochs'))
 
     # if extra:
     #     # Create log directory path
