@@ -331,7 +331,7 @@ def create_writer(dict_for_writer: dict
     # Get timestamp of current date (all experiments on certain day live in same folder)
     timestamp = datetime.now().strftime("%Y-%m-%d") # returns current date in YYYY-MM-DD format
 
-    log_dir = os.path.join("runs", str(dict_for_writer['experiment_number']), str(timestamp), dict_for_writer['model_name'])
+    log_dir = os.path.join("runs", "metrics", str(dict_for_writer['experiment_number']), str(timestamp), dict_for_writer['model_name'])
     if dict_for_writer.get('sample_size'):
         log_dir = os.path.join(log_dir, str(dict_for_writer.get('sample_size')))
     if dict_for_writer.get('loss_fn'):
