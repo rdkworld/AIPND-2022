@@ -40,7 +40,6 @@ def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_ex
     elif hasattr(pretrained_model, 'head') and 'swin' in pretrained_model.__class__.__name__.lower(): #swin transformer
         num_ftrs = pretrained_model.head.in_features
         pretrained_model.head = nn.Linear(num_ftrs, num_classes, bias = True)
-
     return pretrained_model
 
 def initialize_existing_models(model_name, model_type, num_classes, feature_extract, hidden_units, use_pretrained=True):
