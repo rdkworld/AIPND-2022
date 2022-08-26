@@ -17,16 +17,16 @@ def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_ex
     if hasattr(pretrained_model, 'fc') and 'resnet' in pretrained_model.__class__.__name__.lower(): #resnet
         num_ftrs = pretrained_model.fc.in_features
         pretrained_model.fc = nn.Linear(num_ftrs, num_classes, bias = True)
-    elif hasattr(pretrained_model, 'classifier[6]') and ('alexnet' in pretrained_model.__class__.__name__.lower() or 'vgg' in pretrained_model.__class__.__name__.lower()): #alexNet, vgg
+    elif hasattr(pretrained_model, 'classifier') and ('alexnet' in pretrained_model.__class__.__name__.lower() or 'vgg' in pretrained_model.__class__.__name__.lower()): #alexNet, vgg
         num_ftrs = pretrained_model.classifier[6].in_features
         pretrained_model.classifier[6] = nn.Linear(num_ftrs, num_classes, bias = True)
-    elif hasattr(pretrained_model, 'classifier[1]') and 'squeezenet' in pretrained_model.__class__.__name__.lower(): #squeezenet
+    elif hasattr(pretrained_model, 'classifier') and 'squeezenet' in pretrained_model.__class__.__name__.lower(): #squeezenet
         pretrained_model.classifier[1] = nn.Conv2d(512, num_classes, kernel_size=(1,1), stride=(1,1))
         pretrained_model.num_classes = num_classes
-    elif hasattr(pretrained_model, 'classifier[1]') and 'efficientnet' in pretrained_model.__class__.__name__.lower(): #squeezenet
+    elif hasattr(pretrained_model, 'classifier') and ('efficientnet' in pretrained_model.__class__.__name__.lower() or 'mobilenet' in pretrained_model.__class__.__name__.lower()): #efficientnet, mobilenet
         num_ftrs = pretrained_model.classifier[1].in_features
         pretrained_model.classifier[1] = nn.Linear(num_ftrs, num_classes, bias = True)
-    elif hasattr(pretrained_model, 'AuxLogits.fc') and 'inception' in pretrained_model.__class__.__name__.lower(): #inception
+    elif hasattr(pretrained_model, 'AuxLogits') and 'inception' in pretrained_model.__class__.__name__.lower(): #inception
         num_ftrs = pretrained_model.AuxLogits.fc.in_features 
         pretrained_model.AuxLogits.fc = nn.Linear(num_ftrs, num_classes) #Auxilary net
         num_ftrs = pretrained_model.fc.in_features
@@ -34,7 +34,7 @@ def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_ex
     elif hasattr(pretrained_model, 'classifier') and 'densenet' in pretrained_model.__class__.__name__.lower(): #densenet
         num_ftrs = pretrained_model.classifier.in_features
         pretrained_model.classifier = nn.Linear(num_ftrs, num_classes, bias = True)
-    elif hasattr(pretrained_model, 'heads') and 'vit' in pretrained_model.__class__.__name__.lower(): #vit transformer
+    elif hasattr(pretrained_model, 'heads') and 'visiontransformer' in pretrained_model.__class__.__name__.lower(): #vit transformer
         num_ftrs = pretrained_model.heads.head.in_features
         pretrained_model.heads.head = nn.Linear(num_ftrs, num_classes, bias = True)
     elif hasattr(pretrained_model, 'head') and 'swin' in pretrained_model.__class__.__name__.lower(): #swin transformer

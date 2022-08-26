@@ -41,11 +41,21 @@ def train_step(model: torch.nn.Module,
         # Send data to target device
         X, y = X.to(device), y.to(device)
 
-        # 1. Forward pass
-        y_pred = model(X)
+        if 'inception' in model.__class__.__name__.lower():
+        # 1. Forward pass          
+          y_pred, aux_outputs = model(X)
+
+        # 2. Calculate  and accumulate loss for Inception Model - Exception          
+          loss1 = loss_fn(y_pred, y)
+          loss2 = loss_fn(aux_outputs, y)
+          loss = loss1 + 0.4*loss2
+        else:
+        # 1. Forward pass          
+          y_pred = model(X)
 
         # 2. Calculate  and accumulate loss
-        loss = loss_fn(y_pred, y)
+          loss = loss_fn(y_pred, y)
+
         train_loss += loss.item() 
 
         # 3. Optimizer zero grad
