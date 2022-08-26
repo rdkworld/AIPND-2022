@@ -17,6 +17,10 @@ def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_ex
     if getattr(pretrained_model, 'heads'):
         num_ftrs = pretrained_model.heads.head.in_features
         pretrained_model.heads.head = nn.Linear(num_ftrs, num_classes, bias = True)
+    elif getattr(pretrained_model, 'head'):
+        num_ftrs = pretrained_model.head.in_features
+        pretrained_model.head = nn.Linear(num_ftrs, num_classes, bias = True)
+
     return pretrained_model
 
 def initialize_existing_models(model_name, model_type, num_classes, feature_extract, hidden_units, use_pretrained=True):
