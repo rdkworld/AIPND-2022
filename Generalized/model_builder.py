@@ -14,10 +14,10 @@ def set_parameter_requires_grad(model, feature_extracting):
 
 def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_extract):
     set_parameter_requires_grad(pretrained_model, feature_extract)
-    if getattr(pretrained_model, 'heads'):
+    if hasattr(pretrained_model, 'heads'):
         num_ftrs = pretrained_model.heads.head.in_features
         pretrained_model.heads.head = nn.Linear(num_ftrs, num_classes, bias = True)
-    elif getattr(pretrained_model, 'head'):
+    elif hasattr(pretrained_model, 'head'):
         num_ftrs = pretrained_model.head.in_features
         pretrained_model.head = nn.Linear(num_ftrs, num_classes, bias = True)
 
