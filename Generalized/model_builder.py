@@ -14,10 +14,27 @@ def set_parameter_requires_grad(model, feature_extracting):
 
 def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_extract):
     set_parameter_requires_grad(pretrained_model, feature_extract)
-    if hasattr(pretrained_model, 'heads'):
+    if hasattr(pretrained_model, 'fc') and 'resnet' in pretrained_model.__class__.__name__.lower(): #resnet
+        num_ftrs = pretrained_model.fc.in_features
+        pretrained_model.fc = nn.Linear(num_ftrs, num_classes, bias = True)
+    elif hasattr(pretrained_model, 'classifier[6]') and ('alexnet' in pretrained_model.__class__.__name__.lower() or 'vgg' in pretrained_model.__class__.__name__.lower()): #alexNet, vgg
+        num_ftrs = pretrained_model.classifier[6].in_features
+        pretrained_model.classifier[6] = nn.Linear(num_ftrs, num_classes, bias = True)
+    elif hasattr(pretrained_model, 'classifier[1]') and 'squeezenet' in pretrained_model.__class__.__name__.lower(): #squeezenet
+        pretrained_model.classifier[1] = nn.Conv2d(512, num_classes, kernel_size=(1,1), stride=(1,1))
+        pretrained_model.num_classes = num_classes
+    elif hasattr(pretrained_model, 'AuxLogits.fc') and 'inception' in pretrained_model.__class__.__name__.lower(): #inception
+        num_ftrs = pretrained_model.AuxLogits.fc.in_features 
+        pretrained_model.AuxLogits.fc = nn.Linear(num_ftrs, num_classes) #Auxilary net
+        num_ftrs = pretrained_model.fc.in_features
+        pretrained_model.fc = nn.Linear(num_ftrs,num_classes) #Primary net
+    elif hasattr(pretrained_model, 'classifier') and 'densenet' in pretrained_model.__class__.__name__.lower(): #densenet
+        num_ftrs = pretrained_model.classifier.in_features
+        pretrained_model.classifier = nn.Linear(num_ftrs, num_classes, bias = True)
+    elif hasattr(pretrained_model, 'heads') and 'vit' in pretrained_model.__class__.__name__.lower(): #vit transformer
         num_ftrs = pretrained_model.heads.head.in_features
         pretrained_model.heads.head = nn.Linear(num_ftrs, num_classes, bias = True)
-    elif hasattr(pretrained_model, 'head'):
+    elif hasattr(pretrained_model, 'head') and 'swin' in pretrained_model.__class__.__name__.lower(): #swin transformer
         num_ftrs = pretrained_model.head.in_features
         pretrained_model.head = nn.Linear(num_ftrs, num_classes, bias = True)
 
