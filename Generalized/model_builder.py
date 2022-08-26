@@ -23,6 +23,9 @@ def update_last_layer_pretrained_model(pretrained_model, num_classes, feature_ex
     elif hasattr(pretrained_model, 'classifier[1]') and 'squeezenet' in pretrained_model.__class__.__name__.lower(): #squeezenet
         pretrained_model.classifier[1] = nn.Conv2d(512, num_classes, kernel_size=(1,1), stride=(1,1))
         pretrained_model.num_classes = num_classes
+    elif hasattr(pretrained_model, 'classifier[1]') and 'efficientnet' in pretrained_model.__class__.__name__.lower(): #squeezenet
+        num_ftrs = pretrained_model.classifier[1].in_features
+        pretrained_model.classifier[1] = nn.Linear(num_ftrs, num_classes, bias = True)
     elif hasattr(pretrained_model, 'AuxLogits.fc') and 'inception' in pretrained_model.__class__.__name__.lower(): #inception
         num_ftrs = pretrained_model.AuxLogits.fc.in_features 
         pretrained_model.AuxLogits.fc = nn.Linear(num_ftrs, num_classes) #Auxilary net
