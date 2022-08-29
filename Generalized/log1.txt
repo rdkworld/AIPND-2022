@@ -1,0 +1,191 @@
+Requirement already satisfied: transformers in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (4.21.2)
+Requirement already satisfied: huggingface_hub in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.9.1)
+Requirement already satisfied: tensorboard in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (2.10.0)
+Requirement already satisfied: matplotlib in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (3.5.3)
+Requirement already satisfied: sklearn in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.0)
+Requirement already satisfied: tqdm>=4.27 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (4.64.0)
+Requirement already satisfied: numpy>=1.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (1.23.2)
+Requirement already satisfied: filelock in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (3.8.0)
+Requirement already satisfied: requests in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (2.27.1)
+Requirement already satisfied: regex!=2019.12.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (2022.8.17)
+Requirement already satisfied: tokenizers!=0.11.3,<0.13,>=0.11.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (0.12.1)
+Requirement already satisfied: pyyaml>=5.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (6.0)
+Requirement already satisfied: packaging>=20.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (21.3)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from huggingface_hub) (4.1.1)
+Requirement already satisfied: protobuf<3.20,>=3.9.2 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (3.19.4)
+Requirement already satisfied: setuptools>=41.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (60.9.3)
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (0.6.1)
+Requirement already satisfied: wheel>=0.26 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (0.37.1)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (0.4.6)
+Requirement already satisfied: grpcio>=1.24.3 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (1.47.0)
+Requirement already satisfied: absl-py>=0.4 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (1.2.0)
+Requirement already satisfied: markdown>=2.6.8 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (3.4.1)
+Requirement already satisfied: werkzeug>=1.0.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (2.2.2)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (2.11.0)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (1.8.1)
+Requirement already satisfied: pillow>=6.2.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (3.0.7)
+Requirement already satisfied: cycler>=0.10 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: python-dateutil>=2.7 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: fonttools>=4.22.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+Requirement already satisfied: scikit-learn in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from sklearn) (1.1.2)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (5.2.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (4.9)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (0.2.8)
+Requirement already satisfied: six>=1.9.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (1.16.0)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard) (1.3.1)
+Requirement already satisfied: importlib-metadata>=4.4 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from markdown>=2.6.8->tensorboard) (4.11.1)
+Requirement already satisfied: zipp>=0.5 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard) (3.7.0)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard) (0.4.8)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (1.26.8)
+Requirement already satisfied: idna<4,>=2.5 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (3.3)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (2.0.12)
+Requirement already satisfied: certifi>=2017.4.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (2021.10.8)
+Requirement already satisfied: oauthlib>=3.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard) (3.2.0)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from werkzeug>=1.0.1->tensorboard) (2.1.1)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from scikit-learn->sklearn) (3.1.0)
+Requirement already satisfied: joblib>=1.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from scikit-learn->sklearn) (1.1.0)
+Requirement already satisfied: scipy>=1.3.2 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from scikit-learn->sklearn) (1.9.0)
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/nightly/cu113
+Requirement already satisfied: torch in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (1.13.0.dev20220826+cu113)
+Requirement already satisfied: torchvision in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.14.0.dev20220826+cu113)
+Requirement already satisfied: torchaudio in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.13.0.dev20220826+cu113)
+Requirement already satisfied: typing-extensions in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torch) (4.1.1)
+Requirement already satisfied: requests in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torchvision) (2.27.1)
+Requirement already satisfied: numpy in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torchvision) (1.23.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torchvision) (9.2.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (1.26.8)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (2.0.12)
+Requirement already satisfied: certifi>=2017.4.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (2021.10.8)
+Requirement already satisfied: idna<4,>=2.5 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (3.3)
+Reinitialized existing Git repository in /home/studio-lab-user/Generalized/flower-models-repo/.git/
+Reinitialized existing Git repository in /home/studio-lab-user/Generalized/which-flower/.git/
+Using torch version: 1.13.0.dev20220826+cu113
+Using torchvision version: 0.14.0.dev20220826+cu113
+[INFO] Couldn't find the scripts... downloading them from GitHub.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 1 STARTS | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_1/2022-08-27/vit_b_16/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.3780094220221621 and train_accuracy of 0.7267900485436893
+Epoch: 1 | train_loss: 1.3780 | train_acc: 0.7268 | test_loss: 0.5170 | test_acc: 0.8951
+---Batch 102 with train_loss of 0.25685305763216854 and train_accuracy of 0.9589906957928803
+Epoch: 2 | train_loss: 0.2569 | train_acc: 0.9590 | test_loss: 0.3445 | test_acc: 0.9209
+---Batch 102 with train_loss of 0.1286095534134837 and train_accuracy of 0.9852851941747572
+Epoch: 3 | train_loss: 0.1286 | train_acc: 0.9853 | test_loss: 0.2640 | test_acc: 0.9405
+---Batch 102 with train_loss of 0.07613530263160039 and train_accuracy of 0.995752427184466
+Epoch: 4 | train_loss: 0.0761 | train_acc: 0.9958 | test_loss: 0.2333 | test_acc: 0.9447
+---Batch 102 with train_loss of 0.0504491811310782 and train_accuracy of 0.9975728155339806
+Epoch: 5 | train_loss: 0.0504 | train_acc: 0.9976 | test_loss: 0.2270 | test_acc: 0.9492
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  327.6 MB
+EXPERIMENT 1 | Completed in 7 min 54sec | TEST ACCURACY 0.9491892911010559 | MODEL SIZE 327.6 MB
+SAVING THIS EXPERIMENT 1 | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for vit_b_16 is below
+[INFO] Saving model to: flowers/models/flowers_vit_b_16_model.pth
+Best model size based on size on disk: 327 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 2 STARTS | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_2/2022-08-27/vit_b_16/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.03566345196325802 and train_accuracy of 0.9986347087378641
+Epoch: 1 | train_loss: 0.0357 | train_acc: 0.9986 | test_loss: 0.2037 | test_acc: 0.9447
+---Batch 102 with train_loss of 0.026883400379888064 and train_accuracy of 0.9996966019417476
+Epoch: 2 | train_loss: 0.0269 | train_acc: 0.9997 | test_loss: 0.1943 | test_acc: 0.9495
+---Batch 102 with train_loss of 0.020574358861567905 and train_accuracy of 1.0
+Epoch: 3 | train_loss: 0.0206 | train_acc: 1.0000 | test_loss: 0.1817 | test_acc: 0.9519
+---Batch 102 with train_loss of 0.016710712691967926 and train_accuracy of 1.0
+Epoch: 4 | train_loss: 0.0167 | train_acc: 1.0000 | test_loss: 0.1813 | test_acc: 0.9552
+---Batch 102 with train_loss of 0.0136477018851172 and train_accuracy of 1.0
+Epoch: 5 | train_loss: 0.0136 | train_acc: 1.0000 | test_loss: 0.1790 | test_acc: 0.9564
+---Batch 102 with train_loss of 0.01153478805807609 and train_accuracy of 1.0
+Epoch: 6 | train_loss: 0.0115 | train_acc: 1.0000 | test_loss: 0.1737 | test_acc: 0.9582
+---Batch 102 with train_loss of 0.00997186707133807 and train_accuracy of 1.0
+Epoch: 7 | train_loss: 0.0100 | train_acc: 1.0000 | test_loss: 0.1722 | test_acc: 0.9552
+---Batch 102 with train_loss of 0.008587254401187874 and train_accuracy of 1.0
+Epoch: 8 | train_loss: 0.0086 | train_acc: 1.0000 | test_loss: 0.1648 | test_acc: 0.9552
+---Batch 102 with train_loss of 0.007563573276642167 and train_accuracy of 1.0
+Epoch: 9 | train_loss: 0.0076 | train_acc: 1.0000 | test_loss: 0.1625 | test_acc: 0.9618
+---Batch 102 with train_loss of 0.006695452392625722 and train_accuracy of 1.0
+Epoch: 10 | train_loss: 0.0067 | train_acc: 1.0000 | test_loss: 0.1599 | test_acc: 0.9585
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  327.6 MB
+EXPERIMENT 2 | Completed in 16 min 24sec | TEST ACCURACY 0.9584983031674208 | MODEL SIZE 327.6 MB
+SAVING THIS EXPERIMENT 2 | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for vit_b_16 is below
+[INFO] Saving model to: flowers/models/flowers_vit_b_16_model.pth
+Best model size based on size on disk: 327 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 3 STARTS | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_3/2022-08-27/vit_b_16/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.014933985608259162 and train_accuracy of 0.9993932038834952
+Epoch: 1 | train_loss: 0.0149 | train_acc: 0.9994 | test_loss: 0.1778 | test_acc: 0.9540
+---Batch 102 with train_loss of 0.006567730667810996 and train_accuracy of 1.0
+Epoch: 2 | train_loss: 0.0066 | train_acc: 1.0000 | test_loss: 0.1649 | test_acc: 0.9546
+---Batch 102 with train_loss of 0.0032380950304869453 and train_accuracy of 0.9998483009708737
+Epoch: 3 | train_loss: 0.0032 | train_acc: 0.9998 | test_loss: 0.1521 | test_acc: 0.9606
+---Batch 102 with train_loss of 0.0019099072923938047 and train_accuracy of 1.0
+Epoch: 4 | train_loss: 0.0019 | train_acc: 1.0000 | test_loss: 0.1405 | test_acc: 0.9609
+---Batch 102 with train_loss of 0.0015107668117954605 and train_accuracy of 1.0
+Epoch: 5 | train_loss: 0.0015 | train_acc: 1.0000 | test_loss: 0.1413 | test_acc: 0.9618
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  327.6 MB
+EXPERIMENT 3 | Completed in 8 min 11sec | TEST ACCURACY 0.9618212669683258 | MODEL SIZE 327.6 MB
+SAVING THIS EXPERIMENT 3 | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for vit_b_16 is below
+[INFO] Saving model to: flowers/models/flowers_vit_b_16_model.pth
+Best model size based on size on disk: 327 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 4 STARTS | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_4/2022-08-27/vit_b_16/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.0011759693152271211 and train_accuracy of 1.0
+Epoch: 1 | train_loss: 0.0012 | train_acc: 1.0000 | test_loss: 0.1399 | test_acc: 0.9654
+---Batch 102 with train_loss of 0.0010045063467153791 and train_accuracy of 1.0
+Epoch: 2 | train_loss: 0.0010 | train_acc: 1.0000 | test_loss: 0.1389 | test_acc: 0.9630
+---Batch 102 with train_loss of 0.000846690258397766 and train_accuracy of 1.0
+Epoch: 3 | train_loss: 0.0008 | train_acc: 1.0000 | test_loss: 0.1378 | test_acc: 0.9630
+---Batch 102 with train_loss of 0.0007355321844072234 and train_accuracy of 1.0
+Epoch: 4 | train_loss: 0.0007 | train_acc: 1.0000 | test_loss: 0.1405 | test_acc: 0.9618
+---Batch 102 with train_loss of 0.0006524056017633926 and train_accuracy of 1.0
+Epoch: 5 | train_loss: 0.0007 | train_acc: 1.0000 | test_loss: 0.1379 | test_acc: 0.9630
+---Batch 102 with train_loss of 0.000583878444797061 and train_accuracy of 1.0
+Epoch: 6 | train_loss: 0.0006 | train_acc: 1.0000 | test_loss: 0.1366 | test_acc: 0.9630
+---Batch 102 with train_loss of 0.0005167019034982252 and train_accuracy of 1.0
+Epoch: 7 | train_loss: 0.0005 | train_acc: 1.0000 | test_loss: 0.1347 | test_acc: 0.9651
+---Batch 102 with train_loss of 0.00046773581229855567 and train_accuracy of 1.0
+Epoch: 8 | train_loss: 0.0005 | train_acc: 1.0000 | test_loss: 0.1334 | test_acc: 0.9627
+---Batch 102 with train_loss of 0.00041926290005789074 and train_accuracy of 1.0
+Epoch: 9 | train_loss: 0.0004 | train_acc: 1.0000 | test_loss: 0.1322 | test_acc: 0.9588
+---Batch 102 with train_loss of 0.0003813751631312398 and train_accuracy of 1.0
+Epoch: 10 | train_loss: 0.0004 | train_acc: 1.0000 | test_loss: 0.1311 | test_acc: 0.9642
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  327.6 MB
+EXPERIMENT 4 | Completed in 16 min 25sec | TEST ACCURACY 0.964225113122172 | MODEL SIZE 327.6 MB
+SAVING THIS EXPERIMENT 4 | MODEL is vit_b_16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for vit_b_16 is below
+[INFO] Saving model to: flowers/models/flowers_vit_b_16_model.pth
+Best model size based on size on disk: 327 MB
+Ending
+Updated git hooks.
+Git LFS initialized.
+[main 2485f24] Updated model and training metrics
+ 6 files changed, 17 insertions(+), 2 deletions(-)
+ create mode 100644 runs/Aug27_03-45-42_default/events.out.tfevents.1661571942.default.10635.0
+ create mode 100644 runs/metrics/Run_1/2022-08-27/vit_b_16/100.0% Data/5_epochs/events.out.tfevents.1661571951.default.10635.1
+ create mode 100644 runs/metrics/Run_2/2022-08-27/vit_b_16/100.0% Data/10_epochs/events.out.tfevents.1661572428.default.10635.2
+ create mode 100644 runs/metrics/Run_3/2022-08-27/vit_b_16/100.0% Data/5_epochs/events.out.tfevents.1661573414.default.10635.3
+ create mode 100644 runs/metrics/Run_4/2022-08-27/vit_b_16/100.0% Data/10_epochs/events.out.tfevents.1661573907.default.10635.4
+Updated git hooks.
+Git LFS initialized.
+[main 0d28091] Updated model changes
+ 10 files changed, 26 insertions(+), 8 deletions(-)
+ create mode 100644 flowers_alexnet_model.pth
+ create mode 100644 flowers_densenet121_model.pth
+ create mode 100644 flowers_efficientnet_b2_model.pth
+ create mode 100644 flowers_inception_v3_model.pth
+ create mode 100644 flowers_resnet18_model.pth
+ create mode 100644 flowers_squeezenet1_1_model.pth
+Uploading LFS objects: 100% (10/10), 1.7 GB | 163 MB/s, done.

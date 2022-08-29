@@ -1,0 +1,983 @@
+Requirement already satisfied: transformers in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (4.21.2)
+Requirement already satisfied: huggingface_hub in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.9.1)
+Requirement already satisfied: tensorboard in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (2.10.0)
+Requirement already satisfied: matplotlib in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (3.5.3)
+Requirement already satisfied: sklearn in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.0)
+Requirement already satisfied: numpy>=1.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (1.23.2)
+Requirement already satisfied: tqdm>=4.27 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (4.64.0)
+Requirement already satisfied: filelock in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (3.8.0)
+Requirement already satisfied: packaging>=20.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (21.3)
+Requirement already satisfied: pyyaml>=5.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (6.0)
+Requirement already satisfied: tokenizers!=0.11.3,<0.13,>=0.11.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (0.12.1)
+Requirement already satisfied: regex!=2019.12.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (2022.8.17)
+Requirement already satisfied: requests in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from transformers) (2.27.1)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from huggingface_hub) (4.1.1)
+Requirement already satisfied: markdown>=2.6.8 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (3.4.1)
+Requirement already satisfied: absl-py>=0.4 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (1.2.0)
+Requirement already satisfied: werkzeug>=1.0.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (2.2.2)
+Requirement already satisfied: grpcio>=1.24.3 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (1.47.0)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (1.8.1)
+Requirement already satisfied: tensorboard-data-server<0.7.0,>=0.6.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (0.6.1)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (0.4.6)
+Requirement already satisfied: protobuf<3.20,>=3.9.2 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (3.19.4)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (2.11.0)
+Requirement already satisfied: wheel>=0.26 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (0.37.1)
+Requirement already satisfied: setuptools>=41.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from tensorboard) (60.9.3)
+Requirement already satisfied: pyparsing>=2.2.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (3.0.7)
+Requirement already satisfied: cycler>=0.10 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: fonttools>=4.22.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+Requirement already satisfied: python-dateutil>=2.7 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: pillow>=6.2.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: scikit-learn in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from sklearn) (1.1.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (0.2.8)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (4.9)
+Requirement already satisfied: six>=1.9.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (1.16.0)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard) (5.2.0)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard) (1.3.1)
+Requirement already satisfied: importlib-metadata>=4.4 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from markdown>=2.6.8->tensorboard) (4.11.1)
+Requirement already satisfied: zipp>=0.5 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from importlib-metadata>=4.4->markdown>=2.6.8->tensorboard) (3.7.0)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard) (0.4.8)
+Requirement already satisfied: idna<4,>=2.5 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (3.3)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (2.0.12)
+Requirement already satisfied: certifi>=2017.4.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (2021.10.8)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->transformers) (1.26.8)
+Requirement already satisfied: oauthlib>=3.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard) (3.2.0)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from werkzeug>=1.0.1->tensorboard) (2.1.1)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from scikit-learn->sklearn) (3.1.0)
+Requirement already satisfied: scipy>=1.3.2 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from scikit-learn->sklearn) (1.9.0)
+Requirement already satisfied: joblib>=1.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from scikit-learn->sklearn) (1.1.0)
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/nightly/cu113
+Requirement already satisfied: torch in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (1.13.0.dev20220826+cu113)
+Requirement already satisfied: torchvision in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.14.0.dev20220826+cu113)
+Requirement already satisfied: torchaudio in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (0.13.0.dev20220826+cu113)
+Requirement already satisfied: typing-extensions in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torch) (4.1.1)
+Requirement already satisfied: numpy in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torchvision) (1.23.2)
+Requirement already satisfied: requests in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torchvision) (2.27.1)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from torchvision) (9.2.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (1.26.8)
+Requirement already satisfied: certifi>=2017.4.17 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (2021.10.8)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (2.0.12)
+Requirement already satisfied: idna<4,>=2.5 in /home/studio-lab-user/.conda/envs/studiolab/lib/python3.9/site-packages (from requests->torchvision) (3.3)
+Reinitialized existing Git repository in /home/studio-lab-user/Generalized/flower-models-repo/.git/
+Reinitialized existing Git repository in /home/studio-lab-user/Generalized/which-flower/.git/
+Using torch version: 1.13.0.dev20220826+cu113
+Using torchvision version: 0.14.0.dev20220826+cu113
+[INFO] Couldn't find the scripts... downloading them from GitHub.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 1 STARTS | MODEL is mobilenet_v2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_1/2022-08-27/mobilenet_v2/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.8821429095221955 and train_accuracy of 0.6547330097087378
+Epoch: 1 | train_loss: 1.8821 | train_acc: 0.6547 | test_loss: 0.7494 | test_acc: 0.8737
+---Batch 102 with train_loss of 0.42827662767715824 and train_accuracy of 0.9393709546925566
+Epoch: 2 | train_loss: 0.4283 | train_acc: 0.9394 | test_loss: 0.4659 | test_acc: 0.9173
+---Batch 102 with train_loss of 0.23949413558522475 and train_accuracy of 0.9713794498381877
+Epoch: 3 | train_loss: 0.2395 | train_acc: 0.9714 | test_loss: 0.3848 | test_acc: 0.9309
+---Batch 102 with train_loss of 0.16138222531496899 and train_accuracy of 0.9836670711974109
+Epoch: 4 | train_loss: 0.1614 | train_acc: 0.9837 | test_loss: 0.3523 | test_acc: 0.9285
+---Batch 102 with train_loss of 0.1133269755513344 and train_accuracy of 0.9910497572815534
+Epoch: 5 | train_loss: 0.1133 | train_acc: 0.9910 | test_loss: 0.3255 | test_acc: 0.9357
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  9.1 MB
+EXPERIMENT 1 | Completed in 1 min 59sec | TEST ACCURACY 0.9356617647058824 | MODEL SIZE 9.1 MB
+SAVING THIS EXPERIMENT 1 | MODEL is mobilenet_v2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for mobilenet_v2 is below
+[INFO] Saving model to: flowers/models/flowers_mobilenet_v2_model.pth
+Best model size based on size on disk: 9 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 2 STARTS | MODEL is mobilenet_v2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_2/2022-08-27/mobilenet_v2/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.08574539462773545 and train_accuracy of 0.9949939320388349
+Epoch: 1 | train_loss: 0.0857 | train_acc: 0.9950 | test_loss: 0.2983 | test_acc: 0.9309
+---Batch 102 with train_loss of 0.06830591241856224 and train_accuracy of 0.995752427184466
+Epoch: 2 | train_loss: 0.0683 | train_acc: 0.9958 | test_loss: 0.2768 | test_acc: 0.9381
+---Batch 102 with train_loss of 0.053305763895939856 and train_accuracy of 0.997876213592233
+Epoch: 3 | train_loss: 0.0533 | train_acc: 0.9979 | test_loss: 0.2632 | test_acc: 0.9381
+---Batch 102 with train_loss of 0.04737647557721555 and train_accuracy of 0.9973199838187702
+Epoch: 4 | train_loss: 0.0474 | train_acc: 0.9973 | test_loss: 0.2643 | test_acc: 0.9357
+---Batch 102 with train_loss of 0.0378758450879634 and train_accuracy of 0.9993932038834952
+Epoch: 5 | train_loss: 0.0379 | train_acc: 0.9994 | test_loss: 0.2637 | test_acc: 0.9333
+---Batch 102 with train_loss of 0.03288226961655524 and train_accuracy of 0.9993932038834952
+Epoch: 6 | train_loss: 0.0329 | train_acc: 0.9994 | test_loss: 0.2522 | test_acc: 0.9417
+---Batch 102 with train_loss of 0.02829497669217656 and train_accuracy of 0.9993932038834952
+Epoch: 7 | train_loss: 0.0283 | train_acc: 0.9994 | test_loss: 0.2453 | test_acc: 0.9345
+---Batch 102 with train_loss of 0.026941440249024666 and train_accuracy of 0.9996966019417476
+Epoch: 8 | train_loss: 0.0269 | train_acc: 0.9997 | test_loss: 0.2493 | test_acc: 0.9357
+---Batch 102 with train_loss of 0.023929106062549412 and train_accuracy of 0.9989381067961165
+Epoch: 9 | train_loss: 0.0239 | train_acc: 0.9989 | test_loss: 0.2419 | test_acc: 0.9333
+---Batch 102 with train_loss of 0.021530353039213756 and train_accuracy of 0.9993932038834952
+Epoch: 10 | train_loss: 0.0215 | train_acc: 0.9994 | test_loss: 0.2412 | test_acc: 0.9369
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  9.1 MB
+EXPERIMENT 2 | Completed in 3 min 47sec | TEST ACCURACY 0.9368636877828055 | MODEL SIZE 9.1 MB
+SAVING THIS EXPERIMENT 2 | MODEL is mobilenet_v2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for mobilenet_v2 is below
+[INFO] Saving model to: flowers/models/flowers_mobilenet_v2_model.pth
+Best model size based on size on disk: 9 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 3 STARTS | MODEL is mobilenet_v2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_3/2022-08-27/mobilenet_v2/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.02706895370795889 and train_accuracy of 0.9975728155339806
+Epoch: 1 | train_loss: 0.0271 | train_acc: 0.9976 | test_loss: 0.2464 | test_acc: 0.9333
+---Batch 102 with train_loss of 0.018481140246488226 and train_accuracy of 0.9983313106796117
+Epoch: 2 | train_loss: 0.0185 | train_acc: 0.9983 | test_loss: 0.2523 | test_acc: 0.9333
+---Batch 102 with train_loss of 0.015876689925789833 and train_accuracy of 0.9986347087378641
+Epoch: 3 | train_loss: 0.0159 | train_acc: 0.9986 | test_loss: 0.2442 | test_acc: 0.9297
+---Batch 102 with train_loss of 0.013011302258728923 and train_accuracy of 0.9990898058252428
+Epoch: 4 | train_loss: 0.0130 | train_acc: 0.9991 | test_loss: 0.2509 | test_acc: 0.9309
+---Batch 102 with train_loss of 0.011853736583414732 and train_accuracy of 0.9990898058252428
+Epoch: 5 | train_loss: 0.0119 | train_acc: 0.9991 | test_loss: 0.2472 | test_acc: 0.9333
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  9.1 MB
+EXPERIMENT 3 | Completed in 1 min 54sec | TEST ACCURACY 0.9332579185520362 | MODEL SIZE 9.1 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 4 STARTS | MODEL is mobilenet_v2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_4/2022-08-27/mobilenet_v2/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.009862810911303296 and train_accuracy of 0.9993932038834952
+Epoch: 1 | train_loss: 0.0099 | train_acc: 0.9994 | test_loss: 0.2262 | test_acc: 0.9345
+---Batch 102 with train_loss of 0.01072828036628989 and train_accuracy of 0.9984830097087378
+Epoch: 2 | train_loss: 0.0107 | train_acc: 0.9985 | test_loss: 0.2341 | test_acc: 0.9405
+---Batch 102 with train_loss of 0.009417531494213973 and train_accuracy of 0.9986852750809061
+Epoch: 3 | train_loss: 0.0094 | train_acc: 0.9987 | test_loss: 0.2421 | test_acc: 0.9372
+---Batch 102 with train_loss of 0.010341498341854409 and train_accuracy of 0.9987864077669902
+Epoch: 4 | train_loss: 0.0103 | train_acc: 0.9988 | test_loss: 0.2521 | test_acc: 0.9417
+---Batch 102 with train_loss of 0.00909794728583611 and train_accuracy of 0.9986347087378641
+Epoch: 5 | train_loss: 0.0091 | train_acc: 0.9986 | test_loss: 0.2704 | test_acc: 0.9272
+---Batch 102 with train_loss of 0.0069892450051553985 and train_accuracy of 0.9995449029126213
+Epoch: 6 | train_loss: 0.0070 | train_acc: 0.9995 | test_loss: 0.2505 | test_acc: 0.9260
+---Batch 102 with train_loss of 0.007568050781716999 and train_accuracy of 0.9992415048543689
+Epoch: 7 | train_loss: 0.0076 | train_acc: 0.9992 | test_loss: 0.2623 | test_acc: 0.9333
+---Batch 102 with train_loss of 0.006732985645745094 and train_accuracy of 0.9992415048543689
+Epoch: 8 | train_loss: 0.0067 | train_acc: 0.9992 | test_loss: 0.2499 | test_acc: 0.9264
+---Batch 102 with train_loss of 0.005302632130338874 and train_accuracy of 0.9998483009708737
+Epoch: 9 | train_loss: 0.0053 | train_acc: 0.9998 | test_loss: 0.2733 | test_acc: 0.9272
+---Batch 102 with train_loss of 0.004842476168245041 and train_accuracy of 0.9996966019417476
+Epoch: 10 | train_loss: 0.0048 | train_acc: 0.9997 | test_loss: 0.2517 | test_acc: 0.9305
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  9.1 MB
+EXPERIMENT 4 | Completed in 3 min 49sec | TEST ACCURACY 0.9305476998491705 | MODEL SIZE 9.1 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 5 STARTS | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_5/2022-08-27/densenet121/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.8202827957648675 and train_accuracy of 0.6511427993527508
+Epoch: 1 | train_loss: 1.8203 | train_acc: 0.6511 | test_loss: 0.6443 | test_acc: 0.8824
+---Batch 102 with train_loss of 0.33922087314348776 and train_accuracy of 0.9458940129449838
+Epoch: 2 | train_loss: 0.3392 | train_acc: 0.9459 | test_loss: 0.4031 | test_acc: 0.9209
+---Batch 102 with train_loss of 0.1786171885804065 and train_accuracy of 0.9761832524271845
+Epoch: 3 | train_loss: 0.1786 | train_acc: 0.9762 | test_loss: 0.3515 | test_acc: 0.9243
+---Batch 102 with train_loss of 0.11386623497582177 and train_accuracy of 0.9877629449838187
+Epoch: 4 | train_loss: 0.1139 | train_acc: 0.9878 | test_loss: 0.2804 | test_acc: 0.9372
+---Batch 102 with train_loss of 0.07231406632412984 and train_accuracy of 0.9940837378640777
+Epoch: 5 | train_loss: 0.0723 | train_acc: 0.9941 | test_loss: 0.2749 | test_acc: 0.9305
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  27.2 MB
+EXPERIMENT 5 | Completed in 2 min 29sec | TEST ACCURACY 0.9305476998491705 | MODEL SIZE 27.2 MB
+SAVING THIS EXPERIMENT 5 | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for densenet121 is below
+[INFO] Saving model to: flowers/models/flowers_densenet121_model.pth
+Best model size based on size on disk: 27 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 6 STARTS | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_6/2022-08-27/densenet121/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.0564723257879609 and train_accuracy of 0.9962075242718447
+Epoch: 1 | train_loss: 0.0565 | train_acc: 0.9962 | test_loss: 0.2599 | test_acc: 0.9393
+---Batch 102 with train_loss of 0.04314702855947527 and train_accuracy of 0.9974211165048543
+Epoch: 2 | train_loss: 0.0431 | train_acc: 0.9974 | test_loss: 0.2595 | test_acc: 0.9420
+---Batch 102 with train_loss of 0.031673436116391014 and train_accuracy of 0.9995449029126213
+Epoch: 3 | train_loss: 0.0317 | train_acc: 0.9995 | test_loss: 0.2345 | test_acc: 0.9468
+---Batch 102 with train_loss of 0.026603252807794846 and train_accuracy of 0.9993932038834952
+Epoch: 4 | train_loss: 0.0266 | train_acc: 0.9994 | test_loss: 0.2239 | test_acc: 0.9489
+---Batch 102 with train_loss of 0.02212533736330213 and train_accuracy of 0.9998483009708737
+Epoch: 5 | train_loss: 0.0221 | train_acc: 0.9998 | test_loss: 0.2195 | test_acc: 0.9414
+---Batch 102 with train_loss of 0.018361027813652186 and train_accuracy of 0.9998483009708737
+Epoch: 6 | train_loss: 0.0184 | train_acc: 0.9998 | test_loss: 0.2176 | test_acc: 0.9519
+---Batch 102 with train_loss of 0.01581059962746154 and train_accuracy of 1.0
+Epoch: 7 | train_loss: 0.0158 | train_acc: 1.0000 | test_loss: 0.2193 | test_acc: 0.9408
+---Batch 102 with train_loss of 0.014660114209954311 and train_accuracy of 0.9998483009708737
+Epoch: 8 | train_loss: 0.0147 | train_acc: 0.9998 | test_loss: 0.2183 | test_acc: 0.9414
+---Batch 102 with train_loss of 0.012450258161655618 and train_accuracy of 0.9998483009708737
+Epoch: 9 | train_loss: 0.0125 | train_acc: 0.9998 | test_loss: 0.2166 | test_acc: 0.9474
+---Batch 102 with train_loss of 0.010777029873423495 and train_accuracy of 1.0
+Epoch: 10 | train_loss: 0.0108 | train_acc: 1.0000 | test_loss: 0.2032 | test_acc: 0.9426
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  27.2 MB
+EXPERIMENT 6 | Completed in 5 min 1sec | TEST ACCURACY 0.9425669306184012 | MODEL SIZE 27.2 MB
+SAVING THIS EXPERIMENT 6 | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for densenet121 is below
+[INFO] Saving model to: flowers/models/flowers_densenet121_model.pth
+Best model size based on size on disk: 27 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 7 STARTS | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_7/2022-08-27/densenet121/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.0357737428761874 and train_accuracy of 0.9940837378640777
+Epoch: 1 | train_loss: 0.0358 | train_acc: 0.9941 | test_loss: 0.2976 | test_acc: 0.9269
+---Batch 102 with train_loss of 0.016489206790670896 and train_accuracy of 0.9974211165048543
+Epoch: 2 | train_loss: 0.0165 | train_acc: 0.9974 | test_loss: 0.2261 | test_acc: 0.9378
+---Batch 102 with train_loss of 0.00888653557060413 and train_accuracy of 0.9995449029126213
+Epoch: 3 | train_loss: 0.0089 | train_acc: 0.9995 | test_loss: 0.2734 | test_acc: 0.9293
+---Batch 102 with train_loss of 0.016407719288853186 and train_accuracy of 0.997876213592233
+Epoch: 4 | train_loss: 0.0164 | train_acc: 0.9979 | test_loss: 0.2562 | test_acc: 0.9336
+---Batch 102 with train_loss of 0.0060638099709905465 and train_accuracy of 0.9998483009708737
+Epoch: 5 | train_loss: 0.0061 | train_acc: 0.9998 | test_loss: 0.2193 | test_acc: 0.9462
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  27.2 MB
+EXPERIMENT 7 | Completed in 2 min 31sec | TEST ACCURACY 0.9461726998491705 | MODEL SIZE 27.2 MB
+SAVING THIS EXPERIMENT 7 | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for densenet121 is below
+[INFO] Saving model to: flowers/models/flowers_densenet121_model.pth
+Best model size based on size on disk: 27 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 8 STARTS | MODEL is densenet121 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_8/2022-08-27/densenet121/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.00849509417888645 and train_accuracy of 0.9986347087378641
+Epoch: 1 | train_loss: 0.0085 | train_acc: 0.9986 | test_loss: 0.2378 | test_acc: 0.9369
+---Batch 102 with train_loss of 0.007497151134743635 and train_accuracy of 0.9993932038834952
+Epoch: 2 | train_loss: 0.0075 | train_acc: 0.9994 | test_loss: 0.2677 | test_acc: 0.9330
+---Batch 102 with train_loss of 0.006756385632347569 and train_accuracy of 0.9990898058252428
+Epoch: 3 | train_loss: 0.0068 | train_acc: 0.9991 | test_loss: 0.2691 | test_acc: 0.9314
+---Batch 102 with train_loss of 0.011344216927858882 and train_accuracy of 0.9974211165048543
+Epoch: 4 | train_loss: 0.0113 | train_acc: 0.9974 | test_loss: 0.3302 | test_acc: 0.9200
+---Batch 102 with train_loss of 0.012976990044071764 and train_accuracy of 0.9970165857605178
+Epoch: 5 | train_loss: 0.0130 | train_acc: 0.9970 | test_loss: 0.2906 | test_acc: 0.9330
+---Batch 102 with train_loss of 0.022195439745030066 and train_accuracy of 0.9939320388349514
+Epoch: 6 | train_loss: 0.0222 | train_acc: 0.9939 | test_loss: 0.2994 | test_acc: 0.9269
+---Batch 102 with train_loss of 0.014865819480071225 and train_accuracy of 0.9956512944983819
+Epoch: 7 | train_loss: 0.0149 | train_acc: 0.9957 | test_loss: 0.3559 | test_acc: 0.9194
+---Batch 102 with train_loss of 0.008355604637260504 and train_accuracy of 0.9986347087378641
+Epoch: 8 | train_loss: 0.0084 | train_acc: 0.9986 | test_loss: 0.2821 | test_acc: 0.9333
+---Batch 102 with train_loss of 0.005386225917055588 and train_accuracy of 0.9992415048543689
+Epoch: 9 | train_loss: 0.0054 | train_acc: 0.9992 | test_loss: 0.2662 | test_acc: 0.9293
+---Batch 102 with train_loss of 0.0012240703442321585 and train_accuracy of 1.0
+Epoch: 10 | train_loss: 0.0012 | train_acc: 1.0000 | test_loss: 0.2418 | test_acc: 0.9402
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  27.2 MB
+EXPERIMENT 8 | Completed in 5 min 5sec | TEST ACCURACY 0.9401630844645551 | MODEL SIZE 27.2 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 9 STARTS | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_9/2022-08-27/inception_v3/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 3.0378890431043013 and train_accuracy of 0.48836974110032366
+Epoch: 1 | train_loss: 3.0379 | train_acc: 0.4884 | test_loss: 1.0844 | test_acc: 0.7767
+---Batch 102 with train_loss of 0.9009077178621755 and train_accuracy of 0.8201355177993527
+Epoch: 2 | train_loss: 0.9009 | train_acc: 0.8201 | test_loss: 0.7105 | test_acc: 0.8377
+---Batch 102 with train_loss of 0.5803158031505289 and train_accuracy of 0.8774271844660194
+Epoch: 3 | train_loss: 0.5803 | train_acc: 0.8774 | test_loss: 0.6162 | test_acc: 0.8422
+---Batch 102 with train_loss of 0.42280874133688734 and train_accuracy of 0.9058960355987056
+Epoch: 4 | train_loss: 0.4228 | train_acc: 0.9059 | test_loss: 0.5203 | test_acc: 0.8762
+---Batch 102 with train_loss of 0.3513682967829473 and train_accuracy of 0.919700647249191
+Epoch: 5 | train_loss: 0.3514 | train_acc: 0.9197 | test_loss: 0.4926 | test_acc: 0.8686
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  94.1 MB
+EXPERIMENT 9 | Completed in 3 min 8sec | TEST ACCURACY 0.868613310708899 | MODEL SIZE 94.1 MB
+SAVING THIS EXPERIMENT 9 | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for inception_v3 is below
+[INFO] Saving model to: flowers/models/flowers_inception_v3_model.pth
+Best model size based on size on disk: 94 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 10 STARTS | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_10/2022-08-27/inception_v3/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.2874037170583762 and train_accuracy of 0.9342131877022654
+Epoch: 1 | train_loss: 0.2874 | train_acc: 0.9342 | test_loss: 0.4755 | test_acc: 0.8744
+---Batch 102 with train_loss of 0.25080738838725875 and train_accuracy of 0.9388652912621359
+Epoch: 2 | train_loss: 0.2508 | train_acc: 0.9389 | test_loss: 0.4834 | test_acc: 0.8663
+---Batch 102 with train_loss of 0.21887409795545837 and train_accuracy of 0.9447309870550162
+Epoch: 3 | train_loss: 0.2189 | train_acc: 0.9447 | test_loss: 0.4642 | test_acc: 0.8764
+---Batch 102 with train_loss of 0.21950910305513918 and train_accuracy of 0.9439724919093851
+Epoch: 4 | train_loss: 0.2195 | train_acc: 0.9440 | test_loss: 0.4471 | test_acc: 0.8665
+---Batch 102 with train_loss of 0.17823981519028978 and train_accuracy of 0.9562095469255663
+Epoch: 5 | train_loss: 0.1782 | train_acc: 0.9562 | test_loss: 0.4111 | test_acc: 0.8891
+---Batch 102 with train_loss of 0.1779459324276563 and train_accuracy of 0.9524676375404532
+Epoch: 6 | train_loss: 0.1779 | train_acc: 0.9525 | test_loss: 0.4527 | test_acc: 0.8746
+---Batch 102 with train_loss of 0.18481398402776533 and train_accuracy of 0.9498887540453075
+Epoch: 7 | train_loss: 0.1848 | train_acc: 0.9499 | test_loss: 0.4315 | test_acc: 0.8758
+---Batch 102 with train_loss of 0.15503431003070572 and train_accuracy of 0.9566646440129449
+Epoch: 8 | train_loss: 0.1550 | train_acc: 0.9567 | test_loss: 0.4033 | test_acc: 0.8897
+---Batch 102 with train_loss of 0.15861027868627345 and train_accuracy of 0.9554510517799353
+Epoch: 9 | train_loss: 0.1586 | train_acc: 0.9555 | test_loss: 0.4264 | test_acc: 0.8789
+---Batch 102 with train_loss of 0.161489237895579 and train_accuracy of 0.953125
+Epoch: 10 | train_loss: 0.1615 | train_acc: 0.9531 | test_loss: 0.4092 | test_acc: 0.8833
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  94.1 MB
+EXPERIMENT 10 | Completed in 6 min 18sec | TEST ACCURACY 0.8833427601809956 | MODEL SIZE 94.1 MB
+SAVING THIS EXPERIMENT 10 | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for inception_v3 is below
+[INFO] Saving model to: flowers/models/flowers_inception_v3_model.pth
+Best model size based on size on disk: 94 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 11 STARTS | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_11/2022-08-27/inception_v3/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.19346842799082542 and train_accuracy of 0.9440736245954692
+Epoch: 1 | train_loss: 0.1935 | train_acc: 0.9441 | test_loss: 0.4514 | test_acc: 0.8825
+---Batch 102 with train_loss of 0.19230437531922628 and train_accuracy of 0.9426072006472492
+Epoch: 2 | train_loss: 0.1923 | train_acc: 0.9426 | test_loss: 0.5309 | test_acc: 0.8554
+---Batch 102 with train_loss of 0.1760466510014048 and train_accuracy of 0.9476132686084143
+Epoch: 3 | train_loss: 0.1760 | train_acc: 0.9476 | test_loss: 0.4087 | test_acc: 0.8836
+---Batch 102 with train_loss of 0.17575794935805125 and train_accuracy of 0.946804207119741
+Epoch: 4 | train_loss: 0.1758 | train_acc: 0.9468 | test_loss: 0.4740 | test_acc: 0.8777
+---Batch 102 with train_loss of 0.1571803996972378 and train_accuracy of 0.9497876213592233
+Epoch: 5 | train_loss: 0.1572 | train_acc: 0.9498 | test_loss: 0.4461 | test_acc: 0.8966
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  94.1 MB
+EXPERIMENT 11 | Completed in 3 min 9sec | TEST ACCURACY 0.8965874811463047 | MODEL SIZE 94.1 MB
+SAVING THIS EXPERIMENT 11 | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for inception_v3 is below
+[INFO] Saving model to: flowers/models/flowers_inception_v3_model.pth
+Best model size based on size on disk: 94 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 12 STARTS | MODEL is inception_v3 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_12/2022-08-27/inception_v3/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.17796295638946655 and train_accuracy of 0.9457928802588997
+Epoch: 1 | train_loss: 0.1780 | train_acc: 0.9458 | test_loss: 0.4743 | test_acc: 0.8717
+---Batch 102 with train_loss of 0.16680983786733405 and train_accuracy of 0.9483717637540453
+Epoch: 2 | train_loss: 0.1668 | train_acc: 0.9484 | test_loss: 0.4391 | test_acc: 0.8828
+---Batch 102 with train_loss of 0.15533674313026724 and train_accuracy of 0.9533272653721683
+Epoch: 3 | train_loss: 0.1553 | train_acc: 0.9533 | test_loss: 0.4003 | test_acc: 0.8981
+---Batch 102 with train_loss of 0.17696824590268645 and train_accuracy of 0.948927993527508
+Epoch: 4 | train_loss: 0.1770 | train_acc: 0.9489 | test_loss: 0.4860 | test_acc: 0.8767
+---Batch 102 with train_loss of 0.16645567708657782 and train_accuracy of 0.9492313915857604
+Epoch: 5 | train_loss: 0.1665 | train_acc: 0.9492 | test_loss: 0.5629 | test_acc: 0.8530
+---Batch 102 with train_loss of 0.1451599658873764 and train_accuracy of 0.9537823624595468
+Epoch: 6 | train_loss: 0.1452 | train_acc: 0.9538 | test_loss: 0.5106 | test_acc: 0.8810
+---Batch 102 with train_loss of 0.1411759180459872 and train_accuracy of 0.9583333333333333
+Epoch: 7 | train_loss: 0.1412 | train_acc: 0.9583 | test_loss: 0.4974 | test_acc: 0.8825
+---Batch 102 with train_loss of 0.16304594205999837 and train_accuracy of 0.953125
+Epoch: 8 | train_loss: 0.1630 | train_acc: 0.9531 | test_loss: 0.4470 | test_acc: 0.8969
+---Batch 102 with train_loss of 0.15448706801438217 and train_accuracy of 0.9506978155339806
+Epoch: 9 | train_loss: 0.1545 | train_acc: 0.9507 | test_loss: 0.5061 | test_acc: 0.8786
+---Batch 102 with train_loss of 0.14597122099937745 and train_accuracy of 0.9545408576051779
+Epoch: 10 | train_loss: 0.1460 | train_acc: 0.9545 | test_loss: 0.4510 | test_acc: 0.8954
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  94.1 MB
+EXPERIMENT 12 | Completed in 6 min 19sec | TEST ACCURACY 0.8953619909502263 | MODEL SIZE 94.1 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 13 STARTS | MODEL is efficientnet_b2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_13/2022-08-27/efficientnet_b2/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.7159622517025586 and train_accuracy of 0.6931634304207119
+Epoch: 1 | train_loss: 1.7160 | train_acc: 0.6932 | test_loss: 0.5948 | test_acc: 0.9065
+---Batch 102 with train_loss of 0.366337109248615 and train_accuracy of 0.9440736245954692
+Epoch: 2 | train_loss: 0.3663 | train_acc: 0.9441 | test_loss: 0.4059 | test_acc: 0.9387
+---Batch 102 with train_loss of 0.22117628395846747 and train_accuracy of 0.9671824433656958
+Epoch: 3 | train_loss: 0.2212 | train_acc: 0.9672 | test_loss: 0.3395 | test_acc: 0.9354
+---Batch 102 with train_loss of 0.14742869098932998 and train_accuracy of 0.9800262944983819
+Epoch: 4 | train_loss: 0.1474 | train_acc: 0.9800 | test_loss: 0.3068 | test_acc: 0.9402
+---Batch 102 with train_loss of 0.10848686674121515 and train_accuracy of 0.9875606796116505
+Epoch: 5 | train_loss: 0.1085 | train_acc: 0.9876 | test_loss: 0.2813 | test_acc: 0.9498
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  30.2 MB
+EXPERIMENT 13 | Completed in 3 min 19sec | TEST ACCURACY 0.9497784690799397 | MODEL SIZE 30.2 MB
+SAVING THIS EXPERIMENT 13 | MODEL is efficientnet_b2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for efficientnet_b2 is below
+[INFO] Saving model to: flowers/models/flowers_efficientnet_b2_model.pth
+Best model size based on size on disk: 30 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 14 STARTS | MODEL is efficientnet_b2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_14/2022-08-27/efficientnet_b2/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.09121668671520011 and train_accuracy of 0.9889765372168284
+Epoch: 1 | train_loss: 0.0912 | train_acc: 0.9890 | test_loss: 0.2632 | test_acc: 0.9435
+---Batch 102 with train_loss of 0.0775602854860639 and train_accuracy of 0.9892293689320388
+Epoch: 2 | train_loss: 0.0776 | train_acc: 0.9892 | test_loss: 0.2594 | test_acc: 0.9393
+---Batch 102 with train_loss of 0.06109498177193901 and train_accuracy of 0.99292071197411
+Epoch: 3 | train_loss: 0.0611 | train_acc: 0.9929 | test_loss: 0.2454 | test_acc: 0.9369
+---Batch 102 with train_loss of 0.06041750476415296 and train_accuracy of 0.990746359223301
+Epoch: 4 | train_loss: 0.0604 | train_acc: 0.9907 | test_loss: 0.2377 | test_acc: 0.9438
+---Batch 102 with train_loss of 0.05115874382911376 and train_accuracy of 0.9933252427184466
+Epoch: 5 | train_loss: 0.0512 | train_acc: 0.9933 | test_loss: 0.2269 | test_acc: 0.9441
+---Batch 102 with train_loss of 0.04075206984377023 and train_accuracy of 0.9960558252427184
+Epoch: 6 | train_loss: 0.0408 | train_acc: 0.9961 | test_loss: 0.2407 | test_acc: 0.9357
+---Batch 102 with train_loss of 0.04333998617327329 and train_accuracy of 0.9933758090614886
+Epoch: 7 | train_loss: 0.0433 | train_acc: 0.9934 | test_loss: 0.2366 | test_acc: 0.9381
+---Batch 102 with train_loss of 0.039688442010902665 and train_accuracy of 0.9937803398058253
+Epoch: 8 | train_loss: 0.0397 | train_acc: 0.9938 | test_loss: 0.2279 | test_acc: 0.9384
+---Batch 102 with train_loss of 0.03583977639096454 and train_accuracy of 0.9948422330097088
+Epoch: 9 | train_loss: 0.0358 | train_acc: 0.9948 | test_loss: 0.2282 | test_acc: 0.9420
+---Batch 102 with train_loss of 0.02766464636163804 and train_accuracy of 0.997876213592233
+Epoch: 10 | train_loss: 0.0277 | train_acc: 0.9979 | test_loss: 0.2274 | test_acc: 0.9378
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  30.2 MB
+EXPERIMENT 14 | Completed in 6 min 44sec | TEST ACCURACY 0.937759238310709 | MODEL SIZE 30.2 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 15 STARTS | MODEL is efficientnet_b2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_15/2022-08-27/efficientnet_b2/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.0385368393860685 and train_accuracy of 0.9925667475728155
+Epoch: 1 | train_loss: 0.0385 | train_acc: 0.9926 | test_loss: 0.2238 | test_acc: 0.9405
+---Batch 102 with train_loss of 0.029937490427559152 and train_accuracy of 0.9937803398058253
+Epoch: 2 | train_loss: 0.0299 | train_acc: 0.9938 | test_loss: 0.2409 | test_acc: 0.9330
+---Batch 102 with train_loss of 0.03095783783773919 and train_accuracy of 0.9928195792880259
+Epoch: 3 | train_loss: 0.0310 | train_acc: 0.9928 | test_loss: 0.2172 | test_acc: 0.9387
+---Batch 102 with train_loss of 0.029960337786673053 and train_accuracy of 0.9930218446601942
+Epoch: 4 | train_loss: 0.0300 | train_acc: 0.9930 | test_loss: 0.2106 | test_acc: 0.9423
+---Batch 102 with train_loss of 0.02691445394319672 and train_accuracy of 0.9939320388349514
+Epoch: 5 | train_loss: 0.0269 | train_acc: 0.9939 | test_loss: 0.2176 | test_acc: 0.9399
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  30.2 MB
+EXPERIMENT 15 | Completed in 3 min 30sec | TEST ACCURACY 0.9398567119155354 | MODEL SIZE 30.2 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 16 STARTS | MODEL is efficientnet_b2 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_16/2022-08-27/efficientnet_b2/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.027458437035782535 and train_accuracy of 0.9933252427184466
+Epoch: 1 | train_loss: 0.0275 | train_acc: 0.9933 | test_loss: 0.2349 | test_acc: 0.9326
+---Batch 102 with train_loss of 0.02386792091363408 and train_accuracy of 0.9945388349514563
+Epoch: 2 | train_loss: 0.0239 | train_acc: 0.9945 | test_loss: 0.2407 | test_acc: 0.9338
+---Batch 102 with train_loss of 0.025130271782773068 and train_accuracy of 0.9933252427184466
+Epoch: 3 | train_loss: 0.0251 | train_acc: 0.9933 | test_loss: 0.2202 | test_acc: 0.9411
+---Batch 102 with train_loss of 0.019868599972009515 and train_accuracy of 0.995752427184466
+Epoch: 4 | train_loss: 0.0199 | train_acc: 0.9958 | test_loss: 0.2397 | test_acc: 0.9378
+---Batch 102 with train_loss of 0.02362649019771409 and train_accuracy of 0.9927184466019418
+Epoch: 5 | train_loss: 0.0236 | train_acc: 0.9927 | test_loss: 0.2353 | test_acc: 0.9432
+---Batch 102 with train_loss of 0.02796862971091878 and train_accuracy of 0.9909486245954692
+Epoch: 6 | train_loss: 0.0280 | train_acc: 0.9909 | test_loss: 0.2311 | test_acc: 0.9402
+---Batch 102 with train_loss of 0.021890907211554716 and train_accuracy of 0.9940837378640777
+Epoch: 7 | train_loss: 0.0219 | train_acc: 0.9941 | test_loss: 0.2358 | test_acc: 0.9408
+---Batch 102 with train_loss of 0.02777954892173988 and train_accuracy of 0.9922633495145631
+Epoch: 8 | train_loss: 0.0278 | train_acc: 0.9923 | test_loss: 0.2471 | test_acc: 0.9378
+---Batch 102 with train_loss of 0.02312298854971214 and train_accuracy of 0.9948927993527508
+Epoch: 9 | train_loss: 0.0231 | train_acc: 0.9949 | test_loss: 0.2339 | test_acc: 0.9450
+---Batch 102 with train_loss of 0.021897130399417965 and train_accuracy of 0.995044498381877
+Epoch: 10 | train_loss: 0.0219 | train_acc: 0.9950 | test_loss: 0.2437 | test_acc: 0.9378
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  30.2 MB
+EXPERIMENT 16 | Completed in 6 min 54sec | TEST ACCURACY 0.937759238310709 | MODEL SIZE 30.2 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 17 STARTS | MODEL is squeezenet1_1 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_17/2022-08-27/squeezenet1_1/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.9382466031509695 and train_accuracy of 0.5935477346278317
+Epoch: 1 | train_loss: 1.9382 | train_acc: 0.5935 | test_loss: 0.8834 | test_acc: 0.8046
+---Batch 102 with train_loss of 0.502749085860345 and train_accuracy of 0.883495145631068
+Epoch: 2 | train_loss: 0.5027 | train_acc: 0.8835 | test_loss: 0.5338 | test_acc: 0.8518
+---Batch 102 with train_loss of 0.23924341566354326 and train_accuracy of 0.9402811488673138
+Epoch: 3 | train_loss: 0.2392 | train_acc: 0.9403 | test_loss: 0.4136 | test_acc: 0.8866
+---Batch 102 with train_loss of 0.14851641316798705 and train_accuracy of 0.9634911003236245
+Epoch: 4 | train_loss: 0.1485 | train_acc: 0.9635 | test_loss: 0.4218 | test_acc: 0.8891
+---Batch 102 with train_loss of 0.10821311646005483 and train_accuracy of 0.9698118932038835
+Epoch: 5 | train_loss: 0.1082 | train_acc: 0.9698 | test_loss: 0.3769 | test_acc: 0.9089
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  3.0 MB
+EXPERIMENT 17 | Completed in 1 min 54sec | TEST ACCURACY 0.9089130844645551 | MODEL SIZE 3.0 MB
+SAVING THIS EXPERIMENT 17 | MODEL is squeezenet1_1 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for squeezenet1_1 is below
+[INFO] Saving model to: flowers/models/flowers_squeezenet1_1_model.pth
+Best model size based on size on disk: 2 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 18 STARTS | MODEL is squeezenet1_1 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_18/2022-08-27/squeezenet1_1/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.06976893361549354 and train_accuracy of 0.9826051779935274
+Epoch: 1 | train_loss: 0.0698 | train_acc: 0.9826 | test_loss: 0.3767 | test_acc: 0.9026
+---Batch 102 with train_loss of 0.05155359269165009 and train_accuracy of 0.9889765372168284
+Epoch: 2 | train_loss: 0.0516 | train_acc: 0.9890 | test_loss: 0.3821 | test_acc: 0.9071
+---Batch 102 with train_loss of 0.03354662375578892 and train_accuracy of 0.9949939320388349
+Epoch: 3 | train_loss: 0.0335 | train_acc: 0.9950 | test_loss: 0.3777 | test_acc: 0.9113
+---Batch 102 with train_loss of 0.02990155398520162 and train_accuracy of 0.9956007281553398
+Epoch: 4 | train_loss: 0.0299 | train_acc: 0.9956 | test_loss: 0.3527 | test_acc: 0.9050
+---Batch 102 with train_loss of 0.026929943383788887 and train_accuracy of 0.995044498381877
+Epoch: 5 | train_loss: 0.0269 | train_acc: 0.9950 | test_loss: 0.3884 | test_acc: 0.9182
+---Batch 102 with train_loss of 0.025332642929375315 and train_accuracy of 0.9951456310679612
+Epoch: 6 | train_loss: 0.0253 | train_acc: 0.9951 | test_loss: 0.3748 | test_acc: 0.9053
+---Batch 102 with train_loss of 0.019372288686973813 and train_accuracy of 0.9962075242718447
+Epoch: 7 | train_loss: 0.0194 | train_acc: 0.9962 | test_loss: 0.3448 | test_acc: 0.9113
+---Batch 102 with train_loss of 0.023002766047884683 and train_accuracy of 0.995752427184466
+Epoch: 8 | train_loss: 0.0230 | train_acc: 0.9958 | test_loss: 0.3385 | test_acc: 0.9110
+---Batch 102 with train_loss of 0.020751995954535973 and train_accuracy of 0.9952973300970874
+Epoch: 9 | train_loss: 0.0208 | train_acc: 0.9953 | test_loss: 0.3896 | test_acc: 0.9053
+---Batch 102 with train_loss of 0.047050808619671654 and train_accuracy of 0.9889259708737864
+Epoch: 10 | train_loss: 0.0471 | train_acc: 0.9889 | test_loss: 0.3758 | test_acc: 0.9161
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  3.0 MB
+EXPERIMENT 18 | Completed in 3 min 48sec | TEST ACCURACY 0.9161246229260935 | MODEL SIZE 3.0 MB
+SAVING THIS EXPERIMENT 18 | MODEL is squeezenet1_1 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for squeezenet1_1 is below
+[INFO] Saving model to: flowers/models/flowers_squeezenet1_1_model.pth
+Best model size based on size on disk: 2 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 19 STARTS | MODEL is squeezenet1_1 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_19/2022-08-27/squeezenet1_1/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.06757338595061192 and train_accuracy of 0.9810376213592233
+Epoch: 1 | train_loss: 0.0676 | train_acc: 0.9810 | test_loss: 0.4493 | test_acc: 0.8876
+---Batch 102 with train_loss of 0.05126964163433001 and train_accuracy of 0.9852851941747572
+Epoch: 2 | train_loss: 0.0513 | train_acc: 0.9853 | test_loss: 0.3829 | test_acc: 0.8996
+---Batch 102 with train_loss of 0.03569902962037516 and train_accuracy of 0.9899878640776699
+Epoch: 3 | train_loss: 0.0357 | train_acc: 0.9900 | test_loss: 0.4327 | test_acc: 0.9050
+---Batch 102 with train_loss of 0.05010488662683378 and train_accuracy of 0.9846783980582524
+Epoch: 4 | train_loss: 0.0501 | train_acc: 0.9847 | test_loss: 0.4975 | test_acc: 0.8963
+---Batch 102 with train_loss of 0.032845096043265846 and train_accuracy of 0.9896844660194175
+Epoch: 5 | train_loss: 0.0328 | train_acc: 0.9897 | test_loss: 0.3767 | test_acc: 0.9089
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  3.0 MB
+EXPERIMENT 19 | Completed in 1 min 54sec | TEST ACCURACY 0.9088895173453998 | MODEL SIZE 3.0 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 20 STARTS | MODEL is squeezenet1_1 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_20/2022-08-27/squeezenet1_1/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.027063797410007893 and train_accuracy of 0.9910497572815534
+Epoch: 1 | train_loss: 0.0271 | train_acc: 0.9910 | test_loss: 0.4252 | test_acc: 0.9086
+---Batch 102 with train_loss of 0.027727571864232636 and train_accuracy of 0.9922633495145631
+Epoch: 2 | train_loss: 0.0277 | train_acc: 0.9923 | test_loss: 0.4361 | test_acc: 0.9095
+---Batch 102 with train_loss of 0.028901306576619955 and train_accuracy of 0.9912014563106796
+Epoch: 3 | train_loss: 0.0289 | train_acc: 0.9912 | test_loss: 0.4322 | test_acc: 0.9128
+---Batch 102 with train_loss of 0.027937915298219734 and train_accuracy of 0.9916565533980582
+Epoch: 4 | train_loss: 0.0279 | train_acc: 0.9917 | test_loss: 0.3935 | test_acc: 0.9098
+---Batch 102 with train_loss of 0.04147895003976391 and train_accuracy of 0.9901901294498382
+Epoch: 5 | train_loss: 0.0415 | train_acc: 0.9902 | test_loss: 0.4129 | test_acc: 0.9185
+---Batch 102 with train_loss of 0.03515492535639301 and train_accuracy of 0.9902912621359223
+Epoch: 6 | train_loss: 0.0352 | train_acc: 0.9903 | test_loss: 0.5377 | test_acc: 0.8990
+---Batch 102 with train_loss of 0.038357083998491665 and train_accuracy of 0.988622572815534
+Epoch: 7 | train_loss: 0.0384 | train_acc: 0.9886 | test_loss: 0.4834 | test_acc: 0.8981
+---Batch 102 with train_loss of 0.039452634345473345 and train_accuracy of 0.9895833333333333
+Epoch: 8 | train_loss: 0.0395 | train_acc: 0.9896 | test_loss: 0.4839 | test_acc: 0.9041
+---Batch 102 with train_loss of 0.02158988989919008 and train_accuracy of 0.9927184466019418
+Epoch: 9 | train_loss: 0.0216 | train_acc: 0.9927 | test_loss: 0.4482 | test_acc: 0.9185
+---Batch 102 with train_loss of 0.028303872940279723 and train_accuracy of 0.9912014563106796
+Epoch: 10 | train_loss: 0.0283 | train_acc: 0.9912 | test_loss: 0.5398 | test_acc: 0.8942
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  3.0 MB
+EXPERIMENT 20 | Completed in 3 min 50sec | TEST ACCURACY 0.8941836349924586 | MODEL SIZE 3.0 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 21 STARTS | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_21/2022-08-27/vgg16/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.588412307998509 and train_accuracy of 0.6189320388349514
+Epoch: 1 | train_loss: 1.5884 | train_acc: 0.6189 | test_loss: 0.7785 | test_acc: 0.7878
+---Batch 102 with train_loss of 0.6094902224332384 and train_accuracy of 0.8212479773462784
+Epoch: 2 | train_loss: 0.6095 | train_acc: 0.8212 | test_loss: 0.6583 | test_acc: 0.8284
+---Batch 102 with train_loss of 0.4899971812095457 and train_accuracy of 0.8553802588996764
+Epoch: 3 | train_loss: 0.4900 | train_acc: 0.8554 | test_loss: 0.6597 | test_acc: 0.8284
+---Batch 102 with train_loss of 0.4269219777248438 and train_accuracy of 0.8738369741100324
+Epoch: 4 | train_loss: 0.4269 | train_acc: 0.8738 | test_loss: 0.6984 | test_acc: 0.8202
+---Batch 102 with train_loss of 0.379412746689852 and train_accuracy of 0.888551779935275
+Epoch: 5 | train_loss: 0.3794 | train_acc: 0.8886 | test_loss: 0.6611 | test_acc: 0.8497
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  513.8 MB
+EXPERIMENT 21 | Completed in 3 min 13sec | TEST ACCURACY 0.8497124811463047 | MODEL SIZE 513.8 MB
+SAVING THIS EXPERIMENT 21 | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for vgg16 is below
+[INFO] Saving model to: flowers/models/flowers_vgg16_model.pth
+Best model size based on size on disk: 513 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 22 STARTS | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_22/2022-08-27/vgg16/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.34693705377358836 and train_accuracy of 0.8907766990291263
+Epoch: 1 | train_loss: 0.3469 | train_acc: 0.8908 | test_loss: 0.6825 | test_acc: 0.8332
+---Batch 102 with train_loss of 0.33429081195477145 and train_accuracy of 0.8974514563106796
+Epoch: 2 | train_loss: 0.3343 | train_acc: 0.8975 | test_loss: 0.6825 | test_acc: 0.8473
+---Batch 102 with train_loss of 0.3522500514405445 and train_accuracy of 0.8943669093851133
+Epoch: 3 | train_loss: 0.3523 | train_acc: 0.8944 | test_loss: 0.7373 | test_acc: 0.8371
+---Batch 102 with train_loss of 0.32524966340041855 and train_accuracy of 0.9034182847896439
+Epoch: 4 | train_loss: 0.3252 | train_acc: 0.9034 | test_loss: 0.7602 | test_acc: 0.8395
+---Batch 102 with train_loss of 0.31221510433745614 and train_accuracy of 0.9078175566343042
+Epoch: 5 | train_loss: 0.3122 | train_acc: 0.9078 | test_loss: 0.7220 | test_acc: 0.8479
+---Batch 102 with train_loss of 0.29458983741628314 and train_accuracy of 0.9110538025889968
+Epoch: 6 | train_loss: 0.2946 | train_acc: 0.9111 | test_loss: 0.6526 | test_acc: 0.8524
+---Batch 102 with train_loss of 0.27850800745406196 and train_accuracy of 0.9157059061488673
+Epoch: 7 | train_loss: 0.2785 | train_acc: 0.9157 | test_loss: 0.7524 | test_acc: 0.8506
+---Batch 102 with train_loss of 0.2635963083543245 and train_accuracy of 0.9201557443365697
+Epoch: 8 | train_loss: 0.2636 | train_acc: 0.9202 | test_loss: 0.7414 | test_acc: 0.8566
+---Batch 102 with train_loss of 0.2919161856102133 and train_accuracy of 0.9149474110032362
+Epoch: 9 | train_loss: 0.2919 | train_acc: 0.9149 | test_loss: 0.7335 | test_acc: 0.8491
+---Batch 102 with train_loss of 0.30800879630938316 and train_accuracy of 0.9205097087378641
+Epoch: 10 | train_loss: 0.3080 | train_acc: 0.9205 | test_loss: 0.7872 | test_acc: 0.8419
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  513.8 MB
+EXPERIMENT 22 | Completed in 6 min 50sec | TEST ACCURACY 0.8418881975867271 | MODEL SIZE 513.8 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 23 STARTS | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_23/2022-08-27/vgg16/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.30877503463365497 and train_accuracy of 0.9193972491909386
+Epoch: 1 | train_loss: 0.3088 | train_acc: 0.9194 | test_loss: 0.9387 | test_acc: 0.8437
+---Batch 102 with train_loss of 0.2884138699765634 and train_accuracy of 0.9222795307443367
+Epoch: 2 | train_loss: 0.2884 | train_acc: 0.9223 | test_loss: 0.8898 | test_acc: 0.8509
+---Batch 102 with train_loss of 0.3146906042272605 and train_accuracy of 0.919801779935275
+Epoch: 3 | train_loss: 0.3147 | train_acc: 0.9198 | test_loss: 0.8780 | test_acc: 0.8443
+---Batch 102 with train_loss of 0.27141082420655827 and train_accuracy of 0.9277912621359223
+Epoch: 4 | train_loss: 0.2714 | train_acc: 0.9278 | test_loss: 0.8506 | test_acc: 0.8605
+---Batch 102 with train_loss of 0.2800801021489993 and train_accuracy of 0.9250606796116505
+Epoch: 5 | train_loss: 0.2801 | train_acc: 0.9251 | test_loss: 0.8970 | test_acc: 0.8527
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  513.8 MB
+EXPERIMENT 23 | Completed in 3 min 26sec | TEST ACCURACY 0.8527055052790348 | MODEL SIZE 513.8 MB
+SAVING THIS EXPERIMENT 23 | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for vgg16 is below
+[INFO] Saving model to: flowers/models/flowers_vgg16_model.pth
+Best model size based on size on disk: 513 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 24 STARTS | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_24/2022-08-27/vgg16/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.2984893101366978 and train_accuracy of 0.9257686084142396
+Epoch: 1 | train_loss: 0.2985 | train_acc: 0.9258 | test_loss: 0.9293 | test_acc: 0.8611
+---Batch 102 with train_loss of 0.28962358082554224 and train_accuracy of 0.9254146440129449
+Epoch: 2 | train_loss: 0.2896 | train_acc: 0.9254 | test_loss: 0.9594 | test_acc: 0.8554
+---Batch 102 with train_loss of 0.2606025811067773 and train_accuracy of 0.933252427184466
+Epoch: 3 | train_loss: 0.2606 | train_acc: 0.9333 | test_loss: 0.8955 | test_acc: 0.8680
+---Batch 102 with train_loss of 0.24927240510661047 and train_accuracy of 0.9344154530744337
+Epoch: 4 | train_loss: 0.2493 | train_acc: 0.9344 | test_loss: 0.9007 | test_acc: 0.8572
+---Batch 102 with train_loss of 0.26955492212211046 and train_accuracy of 0.9326456310679612
+Epoch: 5 | train_loss: 0.2696 | train_acc: 0.9326 | test_loss: 0.9101 | test_acc: 0.8614
+---Batch 102 with train_loss of 0.28306083538506216 and train_accuracy of 0.9310275080906149
+Epoch: 6 | train_loss: 0.2831 | train_acc: 0.9310 | test_loss: 1.0295 | test_acc: 0.8515
+---Batch 102 with train_loss of 0.2547949014674619 and train_accuracy of 0.9342131877022654
+Epoch: 7 | train_loss: 0.2548 | train_acc: 0.9342 | test_loss: 1.0682 | test_acc: 0.8530
+---Batch 102 with train_loss of 0.3134694496639869 and train_accuracy of 0.9342131877022654
+Epoch: 8 | train_loss: 0.3135 | train_acc: 0.9342 | test_loss: 0.9458 | test_acc: 0.8605
+---Batch 102 with train_loss of 0.2667445188831285 and train_accuracy of 0.9403317152103561
+Epoch: 9 | train_loss: 0.2667 | train_acc: 0.9403 | test_loss: 1.0504 | test_acc: 0.8596
+---Batch 102 with train_loss of 0.2737092229275449 and train_accuracy of 0.9343648867313915
+Epoch: 10 | train_loss: 0.2737 | train_acc: 0.9344 | test_loss: 0.9966 | test_acc: 0.8554
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  513.8 MB
+EXPERIMENT 24 | Completed in 6 min 52sec | TEST ACCURACY 0.8554157239819005 | MODEL SIZE 513.8 MB
+SAVING THIS EXPERIMENT 24 | MODEL is vgg16 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for vgg16 is below
+[INFO] Saving model to: flowers/models/flowers_vgg16_model.pth
+Best model size based on size on disk: 513 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 25 STARTS | MODEL is alexnet | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_25/2022-08-27/alexnet/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.694189362155581 and train_accuracy of 0.6482099514563107
+Epoch: 1 | train_loss: 1.6942 | train_acc: 0.6482 | test_loss: 0.9439 | test_acc: 0.7718
+---Batch 102 with train_loss of 0.56664015945879 and train_accuracy of 0.8495145631067961
+Epoch: 2 | train_loss: 0.5666 | train_acc: 0.8495 | test_loss: 0.8399 | test_acc: 0.7995
+---Batch 102 with train_loss of 0.4194963890516642 and train_accuracy of 0.8836468446601942
+Epoch: 3 | train_loss: 0.4195 | train_acc: 0.8836 | test_loss: 0.8712 | test_acc: 0.8133
+---Batch 102 with train_loss of 0.3585767467479104 and train_accuracy of 0.9066039644012944
+Epoch: 4 | train_loss: 0.3586 | train_acc: 0.9066 | test_loss: 0.9330 | test_acc: 0.8175
+---Batch 102 with train_loss of 0.33793178193488166 and train_accuracy of 0.9123179611650486
+Epoch: 5 | train_loss: 0.3379 | train_acc: 0.9123 | test_loss: 0.9247 | test_acc: 0.8343
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  219.0 MB
+EXPERIMENT 25 | Completed in 1 min 51sec | TEST ACCURACY 0.8343467194570136 | MODEL SIZE 219.0 MB
+SAVING THIS EXPERIMENT 25 | MODEL is alexnet | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for alexnet is below
+[INFO] Saving model to: flowers/models/flowers_alexnet_model.pth
+Best model size based on size on disk: 219 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 26 STARTS | MODEL is alexnet | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_26/2022-08-27/alexnet/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.2830095550099623 and train_accuracy of 0.9216727346278317
+Epoch: 1 | train_loss: 0.2830 | train_acc: 0.9217 | test_loss: 0.9266 | test_acc: 0.8335
+---Batch 102 with train_loss of 0.3085543106409531 and train_accuracy of 0.9266282362459547
+Epoch: 2 | train_loss: 0.3086 | train_acc: 0.9266 | test_loss: 0.9392 | test_acc: 0.8347
+---Batch 102 with train_loss of 0.2613586975098814 and train_accuracy of 0.9322411003236245
+Epoch: 3 | train_loss: 0.2614 | train_acc: 0.9322 | test_loss: 1.0358 | test_acc: 0.8239
+---Batch 102 with train_loss of 0.21854945731539172 and train_accuracy of 0.9441747572815534
+Epoch: 4 | train_loss: 0.2185 | train_acc: 0.9442 | test_loss: 1.0340 | test_acc: 0.8280
+---Batch 102 with train_loss of 0.20539220361925156 and train_accuracy of 0.9477144012944984
+Epoch: 5 | train_loss: 0.2054 | train_acc: 0.9477 | test_loss: 0.9956 | test_acc: 0.8452
+---Batch 102 with train_loss of 0.21788639251540587 and train_accuracy of 0.945995145631068
+Epoch: 6 | train_loss: 0.2179 | train_acc: 0.9460 | test_loss: 1.2055 | test_acc: 0.8383
+---Batch 102 with train_loss of 0.2212834561930843 and train_accuracy of 0.9462985436893204
+Epoch: 7 | train_loss: 0.2213 | train_acc: 0.9463 | test_loss: 1.1391 | test_acc: 0.8320
+---Batch 102 with train_loss of 0.21877913925236145 and train_accuracy of 0.9512034789644013
+Epoch: 8 | train_loss: 0.2188 | train_acc: 0.9512 | test_loss: 1.1151 | test_acc: 0.8539
+---Batch 102 with train_loss of 0.21058566626884695 and train_accuracy of 0.9495853559870551
+Epoch: 9 | train_loss: 0.2106 | train_acc: 0.9496 | test_loss: 1.2539 | test_acc: 0.8338
+---Batch 102 with train_loss of 0.23741883672299136 and train_accuracy of 0.9474110032362459
+Epoch: 10 | train_loss: 0.2374 | train_acc: 0.9474 | test_loss: 1.3022 | test_acc: 0.8335
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  219.0 MB
+EXPERIMENT 26 | Completed in 3 min 44sec | TEST ACCURACY 0.8334511689291101 | MODEL SIZE 219.0 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 27 STARTS | MODEL is alexnet | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_27/2022-08-27/alexnet/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.2812177418794447 and train_accuracy of 0.9432645631067961
+Epoch: 1 | train_loss: 0.2812 | train_acc: 0.9433 | test_loss: 1.3350 | test_acc: 0.8470
+---Batch 102 with train_loss of 0.23893228003719044 and train_accuracy of 0.950950647249191
+Epoch: 2 | train_loss: 0.2389 | train_acc: 0.9510 | test_loss: 1.5824 | test_acc: 0.8217
+---Batch 102 with train_loss of 0.23320913499162432 and train_accuracy of 0.9554004854368932
+Epoch: 3 | train_loss: 0.2332 | train_acc: 0.9554 | test_loss: 1.6340 | test_acc: 0.8271
+---Batch 102 with train_loss of 0.22662570981706665 and train_accuracy of 0.9548442556634303
+Epoch: 4 | train_loss: 0.2266 | train_acc: 0.9548 | test_loss: 1.6163 | test_acc: 0.8260
+---Batch 102 with train_loss of 0.2673980549918216 and train_accuracy of 0.9533778317152104
+Epoch: 5 | train_loss: 0.2674 | train_acc: 0.9534 | test_loss: 1.4937 | test_acc: 0.8296
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  219.0 MB
+EXPERIMENT 27 | Completed in 1 min 51sec | TEST ACCURACY 0.8295625942684767 | MODEL SIZE 219.0 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 28 STARTS | MODEL is alexnet | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_28/2022-08-27/alexnet/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.26752435455315754 and train_accuracy of 0.9556027508090614
+Epoch: 1 | train_loss: 0.2675 | train_acc: 0.9556 | test_loss: 1.6684 | test_acc: 0.8292
+---Batch 102 with train_loss of 0.2662422607643801 and train_accuracy of 0.9513551779935274
+Epoch: 2 | train_loss: 0.2662 | train_acc: 0.9514 | test_loss: 1.5146 | test_acc: 0.8509
+---Batch 102 with train_loss of 0.20340303232151907 and train_accuracy of 0.9609122168284789
+Epoch: 3 | train_loss: 0.2034 | train_acc: 0.9609 | test_loss: 1.5298 | test_acc: 0.8443
+---Batch 102 with train_loss of 0.23757744815824464 and train_accuracy of 0.9588895631067961
+Epoch: 4 | train_loss: 0.2376 | train_acc: 0.9589 | test_loss: 1.4741 | test_acc: 0.8614
+---Batch 102 with train_loss of 0.1926515586267325 and train_accuracy of 0.968800566343042
+Epoch: 5 | train_loss: 0.1927 | train_acc: 0.9688 | test_loss: 1.8456 | test_acc: 0.8296
+---Batch 102 with train_loss of 0.22906403638068157 and train_accuracy of 0.9607099514563107
+Epoch: 6 | train_loss: 0.2291 | train_acc: 0.9607 | test_loss: 1.5443 | test_acc: 0.8527
+---Batch 102 with train_loss of 0.22104927286089204 and train_accuracy of 0.960254854368932
+Epoch: 7 | train_loss: 0.2210 | train_acc: 0.9603 | test_loss: 1.5689 | test_acc: 0.8410
+---Batch 102 with train_loss of 0.21917324209944922 and train_accuracy of 0.9644012944983819
+Epoch: 8 | train_loss: 0.2192 | train_acc: 0.9644 | test_loss: 1.7164 | test_acc: 0.8401
+---Batch 102 with train_loss of 0.19011989295611484 and train_accuracy of 0.9644012944983819
+Epoch: 9 | train_loss: 0.1901 | train_acc: 0.9644 | test_loss: 1.5058 | test_acc: 0.8503
+---Batch 102 with train_loss of 0.2024572975690549 and train_accuracy of 0.964552993527508
+Epoch: 10 | train_loss: 0.2025 | train_acc: 0.9646 | test_loss: 1.6596 | test_acc: 0.8527
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  219.0 MB
+EXPERIMENT 28 | Completed in 3 min 41sec | TEST ACCURACY 0.8527055052790348 | MODEL SIZE 219.0 MB
+SAVING THIS EXPERIMENT 28 | MODEL is alexnet | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for alexnet is below
+[INFO] Saving model to: flowers/models/flowers_alexnet_model.pth
+Best model size based on size on disk: 219 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 29 STARTS | MODEL is resnet18 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_29/2022-08-27/resnet18/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.9389843182656372 and train_accuracy of 0.6161508899676376
+Epoch: 1 | train_loss: 1.9390 | train_acc: 0.6162 | test_loss: 0.7310 | test_acc: 0.8518
+---Batch 102 with train_loss of 0.44017874586929395 and train_accuracy of 0.9146440129449838
+Epoch: 2 | train_loss: 0.4402 | train_acc: 0.9146 | test_loss: 0.5312 | test_acc: 0.8689
+---Batch 102 with train_loss of 0.26017129218694074 and train_accuracy of 0.9572208737864077
+Epoch: 3 | train_loss: 0.2602 | train_acc: 0.9572 | test_loss: 0.4206 | test_acc: 0.8981
+---Batch 102 with train_loss of 0.16965777238885177 and train_accuracy of 0.9715311488673138
+Epoch: 4 | train_loss: 0.1697 | train_acc: 0.9715 | test_loss: 0.4121 | test_acc: 0.8797
+---Batch 102 with train_loss of 0.12609653930785586 and train_accuracy of 0.9803802588996764
+Epoch: 5 | train_loss: 0.1261 | train_acc: 0.9804 | test_loss: 0.3660 | test_acc: 0.8984
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  42.9 MB
+EXPERIMENT 29 | Completed in 1 min 56sec | TEST ACCURACY 0.898402149321267 | MODEL SIZE 42.9 MB
+SAVING THIS EXPERIMENT 29 | MODEL is resnet18 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for resnet18 is below
+[INFO] Saving model to: flowers/models/flowers_resnet18_model.pth
+Best model size based on size on disk: 42 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 30 STARTS | MODEL is resnet18 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_30/2022-08-27/resnet18/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.0917431273796026 and train_accuracy of 0.991504854368932
+Epoch: 1 | train_loss: 0.0917 | train_acc: 0.9915 | test_loss: 0.3306 | test_acc: 0.9041
+---Batch 102 with train_loss of 0.07203024897037201 and train_accuracy of 0.992870145631068
+Epoch: 2 | train_loss: 0.0720 | train_acc: 0.9929 | test_loss: 0.3283 | test_acc: 0.9092
+---Batch 102 with train_loss of 0.05988912926353876 and train_accuracy of 0.9945388349514563
+Epoch: 3 | train_loss: 0.0599 | train_acc: 0.9945 | test_loss: 0.3216 | test_acc: 0.9032
+---Batch 102 with train_loss of 0.04689612310126569 and train_accuracy of 0.9977245145631068
+Epoch: 4 | train_loss: 0.0469 | train_acc: 0.9977 | test_loss: 0.3217 | test_acc: 0.9116
+---Batch 102 with train_loss of 0.04255193030660592 and train_accuracy of 0.9977245145631068
+Epoch: 5 | train_loss: 0.0426 | train_acc: 0.9977 | test_loss: 0.3118 | test_acc: 0.9041
+---Batch 102 with train_loss of 0.03490403866919788 and train_accuracy of 0.9980279126213593
+Epoch: 6 | train_loss: 0.0349 | train_acc: 0.9980 | test_loss: 0.3082 | test_acc: 0.9065
+---Batch 102 with train_loss of 0.02971451314509783 and train_accuracy of 0.9986347087378641
+Epoch: 7 | train_loss: 0.0297 | train_acc: 0.9986 | test_loss: 0.2801 | test_acc: 0.9125
+---Batch 102 with train_loss of 0.025794341301238075 and train_accuracy of 0.9990898058252428
+Epoch: 8 | train_loss: 0.0258 | train_acc: 0.9991 | test_loss: 0.2973 | test_acc: 0.9080
+---Batch 102 with train_loss of 0.027300806480993346 and train_accuracy of 0.9983313106796117
+Epoch: 9 | train_loss: 0.0273 | train_acc: 0.9983 | test_loss: 0.2964 | test_acc: 0.9122
+---Batch 102 with train_loss of 0.02121940063475405 and train_accuracy of 0.9992415048543689
+Epoch: 10 | train_loss: 0.0212 | train_acc: 0.9992 | test_loss: 0.2916 | test_acc: 0.9140
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  42.9 MB
+EXPERIMENT 30 | Completed in 3 min 53sec | TEST ACCURACY 0.914027149321267 | MODEL SIZE 42.9 MB
+SAVING THIS EXPERIMENT 30 | MODEL is resnet18 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for resnet18 is below
+[INFO] Saving model to: flowers/models/flowers_resnet18_model.pth
+Best model size based on size on disk: 42 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 31 STARTS | MODEL is resnet18 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_31/2022-08-27/resnet18/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.044940180732931906 and train_accuracy of 0.9927184466019418
+Epoch: 1 | train_loss: 0.0449 | train_acc: 0.9927 | test_loss: 0.3198 | test_acc: 0.9020
+---Batch 102 with train_loss of 0.03181899716914857 and train_accuracy of 0.9945388349514563
+Epoch: 2 | train_loss: 0.0318 | train_acc: 0.9945 | test_loss: 0.3982 | test_acc: 0.8864
+---Batch 102 with train_loss of 0.030260362544829406 and train_accuracy of 0.9934769417475728
+Epoch: 3 | train_loss: 0.0303 | train_acc: 0.9935 | test_loss: 0.3720 | test_acc: 0.9023
+---Batch 102 with train_loss of 0.019835713075347317 and train_accuracy of 0.9974211165048543
+Epoch: 4 | train_loss: 0.0198 | train_acc: 0.9974 | test_loss: 0.3355 | test_acc: 0.9122
+---Batch 102 with train_loss of 0.016018054298875692 and train_accuracy of 0.9977245145631068
+Epoch: 5 | train_loss: 0.0160 | train_acc: 0.9977 | test_loss: 0.3509 | test_acc: 0.9065
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  42.9 MB
+EXPERIMENT 31 | Completed in 1 min 58sec | TEST ACCURACY 0.906509238310709 | MODEL SIZE 42.9 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 32 STARTS | MODEL is resnet18 | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_32/2022-08-27/resnet18/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.024440434795252763 and train_accuracy of 0.9949433656957929
+Epoch: 1 | train_loss: 0.0244 | train_acc: 0.9949 | test_loss: 0.4324 | test_acc: 0.8852
+---Batch 102 with train_loss of 0.027548940291682495 and train_accuracy of 0.9926173139158576
+Epoch: 2 | train_loss: 0.0275 | train_acc: 0.9926 | test_loss: 0.3665 | test_acc: 0.8927
+---Batch 102 with train_loss of 0.02234912277154118 and train_accuracy of 0.9959041262135923
+Epoch: 3 | train_loss: 0.0223 | train_acc: 0.9959 | test_loss: 0.4028 | test_acc: 0.8990
+---Batch 102 with train_loss of 0.010508523589379868 and train_accuracy of 0.9989381067961165
+Epoch: 4 | train_loss: 0.0105 | train_acc: 0.9989 | test_loss: 0.3646 | test_acc: 0.9074
+---Batch 102 with train_loss of 0.006747764999779321 and train_accuracy of 0.9995449029126213
+Epoch: 5 | train_loss: 0.0067 | train_acc: 0.9995 | test_loss: 0.3624 | test_acc: 0.8987
+---Batch 102 with train_loss of 0.007287715572990404 and train_accuracy of 0.9992415048543689
+Epoch: 6 | train_loss: 0.0073 | train_acc: 0.9992 | test_loss: 0.3639 | test_acc: 0.8993
+---Batch 102 with train_loss of 0.008395515243269648 and train_accuracy of 0.9981796116504854
+Epoch: 7 | train_loss: 0.0084 | train_acc: 0.9982 | test_loss: 0.3461 | test_acc: 0.9017
+---Batch 102 with train_loss of 0.010384258087973101 and train_accuracy of 0.997876213592233
+Epoch: 8 | train_loss: 0.0104 | train_acc: 0.9979 | test_loss: 0.3734 | test_acc: 0.9005
+---Batch 102 with train_loss of 0.016965201826431582 and train_accuracy of 0.9969660194174758
+Epoch: 9 | train_loss: 0.0170 | train_acc: 0.9970 | test_loss: 0.4604 | test_acc: 0.8870
+---Batch 102 with train_loss of 0.013592309256319355 and train_accuracy of 0.9965109223300971
+Epoch: 10 | train_loss: 0.0136 | train_acc: 0.9965 | test_loss: 0.3416 | test_acc: 0.9041
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  42.9 MB
+EXPERIMENT 32 | Completed in 3 min 55sec | TEST ACCURACY 0.9041053921568628 | MODEL SIZE 42.9 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 33 STARTS | MODEL is swin_b | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_33/2022-08-27/swin_b/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 1.7380258209497026 and train_accuracy of 0.649878640776699
+Epoch: 1 | train_loss: 1.7380 | train_acc: 0.6499 | test_loss: 0.6236 | test_acc: 0.8593
+---Batch 102 with train_loss of 0.5132532196426854 and train_accuracy of 0.8980582524271845
+Epoch: 2 | train_loss: 0.5133 | train_acc: 0.8981 | test_loss: 0.4003 | test_acc: 0.9089
+---Batch 102 with train_loss of 0.3318851574242694 and train_accuracy of 0.9399777508090614
+Epoch: 3 | train_loss: 0.3319 | train_acc: 0.9400 | test_loss: 0.3224 | test_acc: 0.9321
+---Batch 102 with train_loss of 0.24191695104524927 and train_accuracy of 0.9564623786407767
+Epoch: 4 | train_loss: 0.2419 | train_acc: 0.9565 | test_loss: 0.2741 | test_acc: 0.9330
+---Batch 102 with train_loss of 0.1933924654878459 and train_accuracy of 0.966676779935275
+Epoch: 5 | train_loss: 0.1934 | train_acc: 0.9667 | test_loss: 0.2609 | test_acc: 0.9348
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  331.7 MB
+EXPERIMENT 33 | Completed in 8 min 34sec | TEST ACCURACY 0.9347662141779789 | MODEL SIZE 331.7 MB
+SAVING THIS EXPERIMENT 33 | MODEL is swin_b | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+Checkpoint for swin_b is below
+[INFO] Saving model to: flowers/models/flowers_swin_b_model.pth
+Best model size based on size on disk: 331 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 34 STARTS | MODEL is swin_b | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_34/2022-08-27/swin_b/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.1631738059584377 and train_accuracy of 0.9706209546925566
+Epoch: 1 | train_loss: 0.1632 | train_acc: 0.9706 | test_loss: 0.2231 | test_acc: 0.9456
+---Batch 102 with train_loss of 0.13379250314918537 and train_accuracy of 0.9749696601941747
+Epoch: 2 | train_loss: 0.1338 | train_acc: 0.9750 | test_loss: 0.2079 | test_acc: 0.9477
+---Batch 102 with train_loss of 0.12434278254948773 and train_accuracy of 0.9760315533980582
+Epoch: 3 | train_loss: 0.1243 | train_acc: 0.9760 | test_loss: 0.2011 | test_acc: 0.9480
+---Batch 102 with train_loss of 0.10760526438650575 and train_accuracy of 0.9792172330097088
+Epoch: 4 | train_loss: 0.1076 | train_acc: 0.9792 | test_loss: 0.2042 | test_acc: 0.9474
+---Batch 102 with train_loss of 0.09654907846045725 and train_accuracy of 0.9816444174757282
+Epoch: 5 | train_loss: 0.0965 | train_acc: 0.9816 | test_loss: 0.1967 | test_acc: 0.9612
+---Batch 102 with train_loss of 0.08421541273015216 and train_accuracy of 0.9836670711974109
+Epoch: 6 | train_loss: 0.0842 | train_acc: 0.9837 | test_loss: 0.1750 | test_acc: 0.9525
+---Batch 102 with train_loss of 0.07803335688212543 and train_accuracy of 0.986498786407767
+Epoch: 7 | train_loss: 0.0780 | train_acc: 0.9865 | test_loss: 0.1737 | test_acc: 0.9498
+---Batch 102 with train_loss of 0.07411155916605759 and train_accuracy of 0.9845772653721683
+Epoch: 8 | train_loss: 0.0741 | train_acc: 0.9846 | test_loss: 0.1700 | test_acc: 0.9537
+---Batch 102 with train_loss of 0.06795057343337142 and train_accuracy of 0.984375
+Epoch: 9 | train_loss: 0.0680 | train_acc: 0.9844 | test_loss: 0.1844 | test_acc: 0.9450
+---Batch 102 with train_loss of 0.061602907291459806 and train_accuracy of 0.9883191747572816
+Epoch: 10 | train_loss: 0.0616 | train_acc: 0.9883 | test_loss: 0.1655 | test_acc: 0.9546
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  331.7 MB
+EXPERIMENT 34 | Completed in 17 min 31sec | TEST ACCURACY 0.954586161387632 | MODEL SIZE 331.7 MB
+SAVING THIS EXPERIMENT 34 | MODEL is swin_b | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+Checkpoint for swin_b is below
+[INFO] Saving model to: flowers/models/flowers_swin_b_model.pth
+Best model size based on size on disk: 331 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 35 STARTS | MODEL is swin_b | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 5
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_35/2022-08-27/swin_b/100.0% Data/5_epochs...
+---Batch 102 with train_loss of 0.07635335358384165 and train_accuracy of 0.9826051779935274
+Epoch: 1 | train_loss: 0.0764 | train_acc: 0.9826 | test_loss: 0.1974 | test_acc: 0.9456
+---Batch 102 with train_loss of 0.06753443480803839 and train_accuracy of 0.9839704692556633
+Epoch: 2 | train_loss: 0.0675 | train_acc: 0.9840 | test_loss: 0.1649 | test_acc: 0.9603
+---Batch 102 with train_loss of 0.06318165732601892 and train_accuracy of 0.9851840614886731
+Epoch: 3 | train_loss: 0.0632 | train_acc: 0.9852 | test_loss: 0.2009 | test_acc: 0.9429
+---Batch 102 with train_loss of 0.0668970923599543 and train_accuracy of 0.9814927184466019
+Epoch: 4 | train_loss: 0.0669 | train_acc: 0.9815 | test_loss: 0.1516 | test_acc: 0.9549
+---Batch 102 with train_loss of 0.04874564851046476 and train_accuracy of 0.9879146440129449
+Epoch: 5 | train_loss: 0.0487 | train_acc: 0.9879 | test_loss: 0.1675 | test_acc: 0.9519
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Calculated best model size based on parameters and buffers  331.7 MB
+EXPERIMENT 35 | Completed in 8 min 46sec | TEST ACCURACY 0.9518759426847663 | MODEL SIZE 331.7 MB
+----------------------------------------------------------------------------------------------------------------------------------------------------
+EXPERIMENT 36 STARTS | MODEL is swin_b | SAMPLE SIZE 1.0 | LOSS FUNCTION CrossEntropyLoss | OPTIMIZER Adam | LEARNING RATE 0.003 | NUM EPOCHS 10
+----------------------------------------------------------------------------------------------------------------------------------------------------
+[INFO] Created SummaryWriter, saving to: runs/metrics/Run_36/2022-08-27/swin_b/100.0% Data/10_epochs...
+---Batch 102 with train_loss of 0.060237781226056296 and train_accuracy of 0.9830602750809061
+Epoch: 1 | train_loss: 0.0602 | train_acc: 0.9831 | test_loss: 0.1814 | test_acc: 0.9510
+---Batch 102 with train_loss of 0.05010487229192575 and train_accuracy of 0.9862459546925566
+Epoch: 2 | train_loss: 0.0501 | train_acc: 0.9862 | test_loss: 0.1795 | test_acc: 0.9447
+---Batch 102 with train_loss of 0.05188760493240021 and train_accuracy of 0.9872572815533981
+Epoch: 3 | train_loss: 0.0519 | train_acc: 0.9873 | test_loss: 0.1626 | test_acc: 0.9519
+---Batch 102 with train_loss of 0.04487878418283411 and train_accuracy of 0.9878640776699029
+Epoch: 4 | train_loss: 0.0449 | train_acc: 0.9879 | test_loss: 0.1830 | test_acc: 0.9561
+---Batch 102 with train_loss of 0.04185125989007574 and train_accuracy of 0.9898361650485437
+Epoch: 5 | train_loss: 0.0419 | train_acc: 0.9898 | test_loss: 0.1473 | test_acc: 0.9630
+Updated git hooks.
+Git LFS initialized.
+[main ba50f4d] Updated model and training metrics
+ 46 files changed, 135 insertions(+), 6 deletions(-)
+ create mode 100644 flowers_alexnet_model.pth
+ create mode 100644 flowers_densenet121_model.pth
+ create mode 100644 flowers_efficientnet_b2_model.pth
+ create mode 100644 flowers_inception_v3_model.pth
+ create mode 100644 flowers_resnet18_model.pth
+ create mode 100644 flowers_squeezenet1_1_model.pth
+ create mode 100644 runs/Aug27_00-55-14_default/events.out.tfevents.1661561714.default.304.0
+ create mode 100644 runs/metrics/Run_1/2022-08-27/mobilenet_v2/100.0% Data/5_epochs/events.out.tfevents.1661561718.default.304.1
+ create mode 100644 runs/metrics/Run_10/2022-08-27/inception_v3/100.0% Data/10_epochs/events.out.tfevents.1661563504.default.304.10
+ create mode 100644 runs/metrics/Run_11/2022-08-27/inception_v3/100.0% Data/5_epochs/events.out.tfevents.1661563883.default.304.11
+ create mode 100644 runs/metrics/Run_12/2022-08-27/inception_v3/100.0% Data/10_epochs/events.out.tfevents.1661564073.default.304.12
+ create mode 100644 runs/metrics/Run_13/2022-08-27/efficientnet_b2/100.0% Data/5_epochs/events.out.tfevents.1661564452.default.304.13
+ create mode 100644 runs/metrics/Run_14/2022-08-27/efficientnet_b2/100.0% Data/10_epochs/events.out.tfevents.1661564651.default.304.14
+ create mode 100644 runs/metrics/Run_15/2022-08-27/efficientnet_b2/100.0% Data/5_epochs/events.out.tfevents.1661565056.default.304.15
+ create mode 100644 runs/metrics/Run_16/2022-08-27/efficientnet_b2/100.0% Data/10_epochs/events.out.tfevents.1661565266.default.304.16
+ create mode 100644 runs/metrics/Run_17/2022-08-27/squeezenet1_1/100.0% Data/5_epochs/events.out.tfevents.1661565680.default.304.17
+ create mode 100644 runs/metrics/Run_18/2022-08-27/squeezenet1_1/100.0% Data/10_epochs/events.out.tfevents.1661565794.default.304.18
+ create mode 100644 runs/metrics/Run_19/2022-08-27/squeezenet1_1/100.0% Data/5_epochs/events.out.tfevents.1661566022.default.304.19
+ create mode 100644 runs/metrics/Run_2/2022-08-27/mobilenet_v2/100.0% Data/10_epochs/events.out.tfevents.1661561837.default.304.2
+ create mode 100644 runs/metrics/Run_20/2022-08-27/squeezenet1_1/100.0% Data/10_epochs/events.out.tfevents.1661566136.default.304.20
+ create mode 100644 runs/metrics/Run_21/2022-08-27/vgg16/100.0% Data/5_epochs/events.out.tfevents.1661566370.default.304.21
+ create mode 100644 runs/metrics/Run_22/2022-08-27/vgg16/100.0% Data/10_epochs/events.out.tfevents.1661566564.default.304.22
+ create mode 100644 runs/metrics/Run_23/2022-08-27/vgg16/100.0% Data/5_epochs/events.out.tfevents.1661566973.default.304.23
+ create mode 100644 runs/metrics/Run_24/2022-08-27/vgg16/100.0% Data/10_epochs/events.out.tfevents.1661567180.default.304.24
+ create mode 100644 runs/metrics/Run_25/2022-08-27/alexnet/100.0% Data/5_epochs/events.out.tfevents.1661567595.default.304.25
+ create mode 100644 runs/metrics/Run_26/2022-08-27/alexnet/100.0% Data/10_epochs/events.out.tfevents.1661567707.default.304.26
+ create mode 100644 runs/metrics/Run_27/2022-08-27/alexnet/100.0% Data/5_epochs/events.out.tfevents.1661567930.default.304.27
+ create mode 100644 runs/metrics/Run_28/2022-08-27/alexnet/100.0% Data/10_epochs/events.out.tfevents.1661568042.default.304.28
+ create mode 100644 runs/metrics/Run_29/2022-08-27/resnet18/100.0% Data/5_epochs/events.out.tfevents.1661568265.default.304.29
+ create mode 100644 runs/metrics/Run_3/2022-08-27/mobilenet_v2/100.0% Data/5_epochs/events.out.tfevents.1661562064.default.304.3
+ create mode 100644 runs/metrics/Run_30/2022-08-27/resnet18/100.0% Data/10_epochs/events.out.tfevents.1661568380.default.304.30
+ create mode 100644 runs/metrics/Run_31/2022-08-27/resnet18/100.0% Data/5_epochs/events.out.tfevents.1661568614.default.304.31
+ create mode 100644 runs/metrics/Run_32/2022-08-27/resnet18/100.0% Data/10_epochs/events.out.tfevents.1661568731.default.304.32
+ create mode 100644 runs/metrics/Run_33/2022-08-27/swin_b/100.0% Data/5_epochs/events.out.tfevents.1661568970.default.304.33
+ create mode 100644 runs/metrics/Run_34/2022-08-27/swin_b/100.0% Data/10_epochs/events.out.tfevents.1661569485.default.304.34
+ create mode 100644 runs/metrics/Run_35/2022-08-27/swin_b/100.0% Data/5_epochs/events.out.tfevents.1661570536.default.304.35
+ create mode 100644 runs/metrics/Run_36/2022-08-27/swin_b/100.0% Data/10_epochs/events.out.tfevents.1661571063.default.304.36
+ create mode 100644 runs/metrics/Run_4/2022-08-27/mobilenet_v2/100.0% Data/10_epochs/events.out.tfevents.1661562178.default.304.4
+ create mode 100644 runs/metrics/Run_5/2022-08-27/densenet121/100.0% Data/5_epochs/events.out.tfevents.1661562407.default.304.5
+ create mode 100644 runs/metrics/Run_6/2022-08-27/densenet121/100.0% Data/10_epochs/events.out.tfevents.1661562556.default.304.6
+ create mode 100644 runs/metrics/Run_7/2022-08-27/densenet121/100.0% Data/5_epochs/events.out.tfevents.1661562858.default.304.7
+ create mode 100644 runs/metrics/Run_8/2022-08-27/densenet121/100.0% Data/10_epochs/events.out.tfevents.1661563010.default.304.8
+ create mode 100644 runs/metrics/Run_9/2022-08-27/inception_v3/100.0% Data/5_epochs/events.out.tfevents.1661563316.default.304.9
+Uploading LFS objects: 100% (46/46), 1.4 GB | 232 MB/s, done.
+Updated git hooks.
+Git LFS initialized.
+[main 83b60df] Updated model changes
+ 9 files changed, 24 insertions(+), 6 deletions(-)
+ create mode 100644 flowers_alexnet_model.pth
+ create mode 100644 flowers_densenet121_model.pth
+ create mode 100644 flowers_efficientnet_b2_model.pth
+ create mode 100644 flowers_inception_v3_model.pth
+ create mode 100644 flowers_resnet18_model.pth
+ create mode 100644 flowers_squeezenet1_1_model.pth
