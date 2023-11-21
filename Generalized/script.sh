@@ -6,13 +6,13 @@ pip install -q torchinfo
 
 #Clone Model Repository
 # rm -rf runs
-git clone https://rdkulkarni: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@huggingface.co/rdkulkarni/flower-models-repo
+git clone https://<huggigface_url>
 cd flower-models-repo
 git init
 cd ..
 
 #Clone Model Inference Repository
-git clone https://rdkulkarni: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@huggingface.co/spaces/rdkulkarni/which-flower
+git clone https://<huggigface_url>
 cd which-flower
 git init
 cd ..
@@ -32,8 +32,8 @@ cd flower-models-repo
 git lfs install
 cp ../flowers/models/*.pth .
 cp -r ../runs .
-git config user.email "rdkulkarni@gmail.com"
-git config user.name "Raghavendra Kulkarni"
+git config user.email "email"
+git config user.name "name"
 git add . 
 git commit -m "Updated model and training metrics"
 git push
@@ -45,8 +45,8 @@ rm -rf flower-models-repo
 cd which-flower
 git lfs install
 cp ../flowers/models/*.pth .
-git config user.email "rdkulkarni@gmail.com"
-git config user.name "Raghavendra Kulkarni"
+git config user.email "email"
+git config user.name "name"
 git add . 
 git commit -m "Updated model changes"
 git push
